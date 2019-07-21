@@ -26,35 +26,6 @@
   ItalicFont      = * Extralight,
   BoldItalicFont  = * Light,
   RawFeature      = +fwid]   
-% 也可以直接使用字体名称加载中文字体，思源字体，请将字体置于fonts目录下
-% \setCJKmainfont[Extension=.otf,
-%     Path=fonts/,
-%     UprightFont=NotoSerifCJKsc-Regular,
-%     BoldFont=NotoSerifCJKsc-Bold,
-%     ItalicFont=NotoSerifCJKsc-Regular,
-%     BoldItalicFont=NotoSerifCJKsc-Bold,
-%     ItalicFeatures=FakeSlant,
-%     BoldItalicFeatures=FakeSlant]{NotoSerifCJKsc}
-% % 无衬线字体，思源字体，请将字体置于fonts目录下         
-% \setCJKsansfont[
-%     Extension=.otf,
-%     Path=fonts/,
-%     UprightFont=NotoSansCJKsc-Regular,
-%     BoldFont=NotoSansCJKsc-Bold,
-%     ItalicFont=NotoSansCJKsc-Regular,
-%     BoldItalicFont=NotoSansCJKsc-Bold,
-%     ItalicFeatures=FakeSlant,
-%     BoldItalicFeatures=FakeSlant]{NotoSansSC}
-% % 中文等宽字体，思源字体，请将字体置于fonts目录下  
-% \setCJKmonofont[
-%     Extension=.otf,
-%     Path=fonts/,
-%     UprightFont=NotoSansMonoCJKsc-Regular,
-%     BoldFont=NotoSansMonoCJKsc-Bold,
-%     ItalicFont=NotoSansMonoCJKsc-Regular,
-%     BoldItalicFont=NotoSansMonoCJKsc-Bold,
-%     ItalicFeatures=FakeSlant,
-%     BoldItalicFeatures=FakeSlant]{NotoSansMonoSC}
 
 %% 自定义相关的名称宏命令
 %% ==================================================
@@ -149,63 +120,44 @@
 \graphicspath{{figs/}}%图片所在的目录
 % ==================================================
 
-% 载入需要的TiKZ库
-\usetikzlibrary{chains}
+%改变脚注的符号
+\setbeamerfont{footnote}{size=\zihao{7}} % 改变脚注字号
+\makeatletter
+\def\@fnsymbol#1{\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or
+   \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger
+   \or \ddagger\ddagger \else\@ctrerr\fi}}
+\makeatother
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
-%% 设置绘制目录结构的宏及参数
-\usepackage[edges]{forest}
-\definecolor{folderbg}{RGB}{124,166,198}
-\definecolor{folderborder}{RGB}{110,144,169}
-\newlength\Size
-\setlength\Size{4pt}
-\tikzset{%
-  folder/.pic={%
-    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);
-    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
-  },
-  file/.pic={%
-    \filldraw [draw=folderborder, top color=folderbg!5, bottom color=folderbg!10] (-\Size,.4*\Size+5pt) coordinate (a) |- (\Size,-1.2*\Size) coordinate (b) -- ++(0,1.6*\Size) coordinate (c) -- ++(-5pt,5pt) coordinate (d) -- cycle (d) |- (c) ;
-  },
-}
-\forestset{%
-  declare autowrapped toks={pic me}{},
-  declare boolean register={pic root},
-  pic root=0,
-  pic dir tree/.style={%
-    for tree={%
-      folder,
-      %font=\ttfamily,
-      grow'=0,
-      s sep=1.0pt,
-      font=\small \sffamily,
-      %fit=band,
-      %ysep = 1.0pt,
-      inner ysep = 2.6pt,
-    },
-    before typesetting nodes={%
-      for tree={%
-        edge label+/.option={pic me},
-      },
-      if pic root={
-        tikz+={
-          \pic at ([xshift=\Size].west) {folder};
-        },
-        align={l}
-      }{},
-    },
-  },
-  pic me set/.code n args=2{%
-    \forestset{%
-      #1/.style={%
-        inner xsep=2\Size,
-        pic me={pic {#2}},
+\DeclareRobustCommand{\nonumberfootnote}[2][]{%
+  \let\thefootnote\relax
+  \footnotetext#1{#2}}    
+
+\makeatletter
+\def\@fnsymbol#1{\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or
+   \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger
+   \or \ddagger\ddagger \else\@ctrerr\fi}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\makeatother
+
+% PoZheHao, see https://github.com/CTeX-org/ctex-kit/issues/382
+\ExplSyntaxOn
+\xeCJK_new_class:n { PoZheHao }
+\__xeCJK_save_CJK_class:n { PoZheHao }
+\xeCJK_declare_char_class:nn { PoZheHao } { "2014 }
+\seq_map_inline:Nn \g__xeCJK_class_seq
+  {
+    \str_if_eq:nnF {#1} { PoZheHao }
+      {
+        \xeCJK_copy_inter_class_toks:nnnn { PoZheHao } {#1} { FullRight } {#1}
+        \xeCJK_copy_inter_class_toks:nnnn {#1} { PoZheHao } {#1} { FullRight }
       }
-    }
-  },
-  pic me set={directory}{folder},
-  pic me set={file}{file},  
-}
-%% ==================================================
+  }
+\ExplSyntaxOff
+
+% 超链接及符号
+\newcommand\link[1]{\href{#1}{\ \faExternalLinkSquare*}}  
+
 
 %%% Local Variables: 
 %%% mode: latex
