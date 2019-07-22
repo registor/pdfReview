@@ -77,14 +77,24 @@
   \begin{columns}[T]
     \column{0.55\textwidth}
     \begin{itemize}
-    \item 打开注释工具
-      \begin{itemize}
+    \item 打开\enquote{注释}工具栏
+      \begin{itemize}\itemsep=5pt%[itemsep=10pt]
       \item \menu{视图>工具>注释>打开}
       \item 工具边栏\keys{注释}图标
       \end{itemize}
     \end{itemize}
     \begin{center}
-      \includegraphics[width=0.9\textwidth]{01acrobat/02openreviewtools01}
+      \begin{annotationimage}{width=0.9\textwidth}{01acrobat/02openreviewtools01}
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.145,0.89) (0.235,0.96)}, inner sep=0pt, draw=red, thick] (view) {};
+        \node[fit={(0.23,0.53) ($(0.23, 0.53) + (0.07, 0.045)$)}, inner sep=0pt, draw=red, thick] (tools) {};
+        \node[fit={(0.522,0.52) ($(0.522, 0.52) + (0.05, 0.045)$)}, inner sep=0pt, draw=red, thick] (annotation) {};
+        \node[fit={(0.755,0.52) ($(0.755, 0.52) + (0.075, 0.045)$)}, inner sep=0pt, draw=red, thick] (open) {};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (view.south) to [out=-90, in=180] (tools.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (tools.east) to [out=0, in=180] (annotation.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (annotation.east) to [out=0, in=180] (open.west);
+      \end{annotationimage}
     \end{center}    
     \column{0.45\textwidth}
     \includegraphics[height=0.8\textheight]{01acrobat/03openreviewtools02}\qquad
@@ -94,26 +104,92 @@
 
 \begin{frame}{PC计算机}{Acrobat Reader DC}
   \begin{itemize}
-  \item 注释工具条
+  \item \enquote{注释}工具栏
     \begin{itemize}
-    \item 添加各类注释
+    \item 用于添加各类注释
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{01acrobat/03openreviewtools04}
+    \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03openreviewtools04}
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.285,0.81) (0.72, 0.85)}, inner sep=0pt, draw=red, thick] (tools) {};
+        % 绘制说明标记
+        \node (annotation) [red,right=of tools,shift={(-0.06, -0.15)}] {\small \enquote{注释}工具栏};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (annotation.north) to [out=90, in=0] (tools.east);
+      \end{annotationimage}
   \end{center}
 \end{frame}
 
 \begin{frame}{PC计算机}{Acrobat Reader DC}
   \begin{itemize}
-  \item 注释工具条
+  \item \enquote{注释}工具栏
     \begin{itemize}
-    \item 工具栏图标
+    \item \enquote{批注}工具
     \end{itemize}
   \end{itemize}
+  
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{01acrobat/03reviewicons01}
+    \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03reviewicons01}
+      \draw[annotation below = {附\\注\\工\\具 at 0.02}] to (0.02,0.5);
+      \draw[annotation below = {高\\亮\\工\\具 at 0.07}] to (0.07,0.5);
+      \draw[annotation below = {下\\划\\线\\工\\具 at 0.126}] to (0.126,0.5);
+      \draw[annotation below = {删\\除\\线\\工\\具 at 0.18}] to (0.18,0.5);
+      \draw[annotation below = {删\\除\\附\\注\\工\\具 at 0.229}] to (0.229,0.5);
+      \draw[annotation below = {插\\入\\文\\本\\工\\具 at 0.283}] to (0.283,0.5);
+      \draw[annotation below = {文\\本\\工\\具 at 0.346}] to (0.346,0.5);
+      \draw[annotation below = {文\\本\\框\\工\\具 at 0.40}] to (0.40,0.5);
+      \draw[annotation below = {铅\\笔\\绘\\图\\工\\具 at 0.45}] to (0.45,0.5);
+      \draw[annotation below = {铅\\笔\\擦\\工\\具 at 0.51}] to (0.51,0.5);
+      \draw[annotation below = {图\\章\\工\\具 at 0.56}] to (0.56,0.5);
+      \draw[annotation below = {附\\加\\文\\件\\工\\具 at 0.63}] to (0.63,0.5);
+      \draw[annotation below = {绘\\图\\工\\具 at 0.7}] to (0.7,0.5);
+      \draw[annotation below = {保\\持\\选\\择\\工\\具 at 0.79}] to (0.79,0.5);
+      \draw[thick,blue] (0.86,0.28) -- (1.0,0.28);
+      \draw[annotation below = {注\\释\\外\\观\\设\\置 at 0.93}] to (0.93,0.5); 
+      % 附注工具、高亮工具、下划线工具、删除线工具、删除附注工具、插入
+      % 文本工具、文本注释工具、文本框工具、铅笔工具、铅笔橡皮擦工具、图章工具、附
+      % 加文件、绘图工具、保持选择工具、注释的外观工具
+    \end{annotationimage}
   \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{Acrobat Reader DC}
+  \begin{itemize}
+  \item 使用\enquote{批注}工具添加注释
+    \begin{itemize}
+    \item 详见：\link{https://helpx.adobe.com/cn/acrobat/using/commenting-pdfs.html}
+    \end{itemize}
+  \end{itemize}
+  
+  \begin{center}
+    \begin{annotationimage}{width=0.55\textwidth}{01acrobat/04adddeleteline}      
+    \end{annotationimage}
+    \begin{annotationimage}{width=0.55\textwidth}{01acrobat/04addtextbox}      
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{Acrobat Reader DC}
+  \begin{columns}[t]
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 管理注释
+      \begin{itemize}\itemsep=8pt
+      \item 复制
+      \item 编辑
+      \item 删除
+      \item 设置状态
+      \item 属性
+      \item 添加勾形
+      \end{itemize}
+    \end{itemize}
+    \column{0.45\textwidth}
+    \begin{center}
+      \begin{annotationimage}{height=0.75\textheight}{01acrobat/04editreviewcontents}
+      \end{annotationimage}
+    \end{center}
+  \end{columns}
 \end{frame}
 
 \subsection{Foxit福昕}
