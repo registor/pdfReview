@@ -131,22 +131,39 @@
   
   \begin{center}
     \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03reviewicons01}
-      \draw[annotation below = {附\\注\\工\\具 at 0.02}] to (0.02,0.5);
-      \draw[annotation below = {高\\亮\\工\\具 at 0.07}] to (0.07,0.5);
-      \draw[annotation below = {下\\划\\线\\工\\具 at 0.126}] to (0.126,0.5);
-      \draw[annotation below = {删\\除\\线\\工\\具 at 0.18}] to (0.18,0.5);
-      \draw[annotation below = {删\\除\\附\\注\\工\\具 at 0.229}] to (0.229,0.5);
-      \draw[annotation below = {插\\入\\文\\本\\工\\具 at 0.283}] to (0.283,0.5);
-      \draw[annotation below = {文\\本\\工\\具 at 0.346}] to (0.346,0.5);
-      \draw[annotation below = {文\\本\\框\\工\\具 at 0.40}] to (0.40,0.5);
-      \draw[annotation below = {铅\\笔\\绘\\图\\工\\具 at 0.45}] to (0.45,0.5);
-      \draw[annotation below = {铅\\笔\\擦\\工\\具 at 0.51}] to (0.51,0.5);
-      \draw[annotation below = {图\\章\\工\\具 at 0.56}] to (0.56,0.5);
-      \draw[annotation below = {附\\加\\文\\件\\工\\具 at 0.63}] to (0.63,0.5);
-      \draw[annotation below = {绘\\图\\工\\具 at 0.7}] to (0.7,0.5);
-      \draw[annotation below = {保\\持\\选\\择\\工\\具 at 0.79}] to (0.79,0.5);
-      \draw[thick,blue] (0.86,0.28) -- (1.0,0.28);
-      \draw[annotation below = {注\\释\\外\\观\\设\\置 at 0.93}] to (0.93,0.5); 
+      % 绘制外观设置按钮分组示意下划线
+      \draw[thick,blue] (0.86,0.26) -- (1.0,0.26);
+      % 添加各图标标注
+      \foreach \ann/\xpos in
+      {
+        {附\\注\\工\\具}/0.02, {高\\亮\\工\\具}/0.07,
+        {下\\划\\线\\工\\具}/0.126, {删\\除\\线\\工\\具}/0.18,
+        {删\\除\\线\\并\\插\\入\\附\\注\\工\\具}/0.229, {插\\入\\文\\本\\工\\具}/0.283,
+        {文\\本\\工\\具}/0.346, {文\\本\\框\\工\\具}/0.40,
+        {铅\\笔\\绘\\图\\工\\具}/0.45, {铅\\笔\\擦\\工\\具}/0.51,
+        {图\\章\\工\\具}/0.56, {附\\加\\文\\件\\工\\具}/0.63,
+        {绘\\图\\工\\具}/0.7, {保\\持\\选\\择\\工\\具}/0.79,
+        {注\\释\\外\\观\\设\\置}/0.93
+      }
+      {
+        \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.48);
+      }
+      % \draw[annotation below = {附\\注\\工\\具 at 0.02}] to (0.02,0.5);
+      % \draw[annotation below = {高\\亮\\工\\具 at 0.07}] to (0.07,0.5);
+      % \draw[annotation below = {下\\划\\线\\工\\具 at 0.126}] to (0.126,0.5);
+      % \draw[annotation below = {删\\除\\线\\工\\具 at 0.18}] to (0.18,0.5);
+      % \draw[annotation below = {删\\除\\附\\注\\工\\具 at 0.229}] to (0.229,0.5);
+      % \draw[annotation below = {插\\入\\文\\本\\工\\具 at 0.283}] to (0.283,0.5);
+      % \draw[annotation below = {文\\本\\工\\具 at 0.346}] to (0.346,0.5);
+      % \draw[annotation below = {文\\本\\框\\工\\具 at 0.40}] to (0.40,0.5);
+      % \draw[annotation below = {铅\\笔\\绘\\图\\工\\具 at 0.45}] to (0.45,0.5);
+      % \draw[annotation below = {铅\\笔\\擦\\工\\具 at 0.51}] to (0.51,0.5);
+      % \draw[annotation below = {图\\章\\工\\具 at 0.56}] to (0.56,0.5);
+      % \draw[annotation below = {附\\加\\文\\件\\工\\具 at 0.63}] to (0.63,0.5);
+      % \draw[annotation below = {绘\\图\\工\\具 at 0.7}] to (0.7,0.5);
+      % \draw[annotation below = {保\\持\\选\\择\\工\\具 at 0.79}] to (0.79,0.5);
+      % \draw[thick,blue] (0.86,0.28) -- (1.0,0.28);
+      % \draw[annotation below = {注\\释\\外\\观\\设\\置 at 0.93}] to (0.93,0.5); 
       % 附注工具、高亮工具、下划线工具、删除线工具、删除附注工具、插入
       % 文本工具、文本注释工具、文本框工具、铅笔工具、铅笔橡皮擦工具、图章工具、附
       % 加文件、绘图工具、保持选择工具、注释的外观工具
@@ -175,7 +192,7 @@
     \column{0.35\textwidth}
     \begin{itemize}
     \item 管理注释
-      \begin{itemize}\itemsep=8pt
+      \begin{itemize}\itemsep=10pt
       \item 复制
       \item 编辑
       \item 删除
@@ -193,8 +210,186 @@
 \end{frame}
 
 \subsection{Foxit福昕}
+\begin{frame}{PC计算机}{Foxit福昕}
+  \begin{columns}[c]
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 基本功能
+      \begin{itemize}
+      \item 查看、打印PDF文档
+      \item \alert{注释}PDF文档
+      \item 其它
+      \end{itemize}
+    \item 适用平台
+      \begin{itemize}
+      \item Windows
+      \item Mac OS
+      \item Linux
+      \item Android
+      \item iOS
+      \end{itemize}
+    \item 下载链接
+      \begin{itemize}
+      \item 官网\link{https://www.foxitsoftware.cn/downloads/}
+      \end{itemize}
+    \item 授权
+      \begin{itemize}
+      \item \alert{免费}
+      \end{itemize}
+    \end{itemize}
+    \column{0.55\textwidth}
+    \includegraphics[width=1.0\textwidth]{02foxitreader/01foxitabout}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PC计算机}{Foxit福昕}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item \menu{注释}菜单打开\enquote{注释}工具栏
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.9\textwidth}{02foxitreader/03foxitanntoolbar}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{Foxit福昕}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item 添加各类\enquote{注释}\footnote[frame,1]{与Acrobat Reader DC
+        软件操作基本一致。}
+    \item 管理各类\enquote{注释}
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.5\textwidth}{02foxitreader/02foxitgui}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+
 \subsection{金山PDF}
+\begin{frame}{PC计算机}{金山PDF}
+  \begin{columns}[c]
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 基本功能
+      \begin{itemize}
+      \item 查看、打印PDF文档
+      \item \alert{注释}PDF文档
+      \item 其它
+      \end{itemize}
+    \item 适用平台
+      \begin{itemize}
+      \item Windows
+      \item 其它平台未知
+      \end{itemize}
+    \item 下载链接
+      \begin{itemize}
+      \item 官网\link{https://www.wps.cn/product/kingsoftpdf/}
+      \end{itemize}
+    \item 授权
+      \begin{itemize}
+      \item \alert{免费}
+      \end{itemize}
+    \end{itemize}
+    \column{0.55\textwidth}
+    \includegraphics[width=1.0\textwidth]{03kingsoftpdf/01kingsoftpdfabout}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PC计算机}{金山PDF}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item \menu{注释}菜单打开\enquote{注释}工具栏
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.9\textwidth}{03kingsoftpdf/03kingsoftpdfanntoolbar}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{金山PDF}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item 添加各类\enquote{注释}\footnote[frame,1]{与Acrobat Reader DC
+        软件操作基本一致。}
+    \item 管理各类\enquote{注释}\footnote[frame,2]{注意使用
+        \enquote{\alert{超级注释模式}}。}
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.5\textwidth}{03kingsoftpdf/042kingsoftpdfsuper}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
 \subsection{Okular}
+\begin{frame}{PC计算机}{Okular}
+  \begin{columns}[c]
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 基本功能
+      \begin{itemize}
+      \item 查看、打印PDF文档
+      \item \alert{注释}PDF文档
+      \item 其它
+      \end{itemize}
+    \item 适用平台
+      \begin{itemize}
+      \item Windows
+      \item Mac OS
+      \item Linux
+      \end{itemize}
+    \item 下载链接
+      \begin{itemize}
+      \item 官网
+        \link{https://okular.kde.org/}\footnote[frame,1]{Ubuntu平台可
+          以直接使用：sudo apt install okular命令进行安装。}
+      \end{itemize}
+    \item 授权
+      \begin{itemize}
+      \item \alert{免费}
+      \end{itemize}
+    \end{itemize}
+    \column{0.55\textwidth}
+    \includegraphics[width=0.95\textwidth]{04okular/01okularabout}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PC计算机}{Foxit福昕}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item \menu{注释}菜单打开\enquote{注释}工具栏
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{height=0.7\textheight}{04okular/03okulartoolbar}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{Foxit福昕}
+  \begin{itemize}
+  \item \enquote{注释}工具栏
+    \begin{itemize}
+    \item 添加各类\enquote{注释}\footnote[frame,1]{与Acrobat Reader DC
+        软件操作基本一致。}
+    \item 管理各类\enquote{注释}
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.6\textwidth}{04okular/02okulargui}
+    \end{annotationimage}
+  \end{center}
+\end{frame}
 
 \section{iOS平板}
 \subsection{Goodnotes}
