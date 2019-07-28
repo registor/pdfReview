@@ -431,17 +431,193 @@
 
 \begin{frame}{iOS平板}{Goodnotes}
   \begin{itemize}\itemsep=3pt
-  \item 软件界面
+  \item 文件管理
     \begin{itemize}
-    \item 文件管理
     \item 创建文件夹
+    \item 分门别类管理
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03reviewicons01}
-    \end{annotationimage}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/02gui01}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/02gui02}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img2](img3)
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/03creatfold}};
+
+      \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.008,0.731) (0.046, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
+        \node[fit={(0.340,0.590) (0.379, 0.644)}, inner sep=0pt, draw=red, thick] (fold) {};
+        \node[fit={(0.805,0.570) (0.868, 0.617)}, inner sep=0pt, draw=red, thick] (name) {};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (fold.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (fold.east) to [out=0, in=180] (name.west);
+      \end{scope}
+    \end{tikzpicture}
   \end{center}
 \end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 导入PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\enquote{iCloud云盘}导入
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/04importmenu}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importicloud}};
+
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
+        \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
+        \node[fit={(0.008,0.4) (0.055, 0.445)}, inner sep=0pt, draw=red, thick] (import) {};
+        \node[fit={(0.57,0.73) (0.66, 0.77)}, inner sep=0pt, draw=red, thick] (icloud) {};
+        \node[fit={(0.69,0.92) (0.78, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudroot) {};
+        \node[fit={(0.81,0.92) (0.85, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudpdf) {};
+        \node[fit={(0.74,0.62) (0.79, 0.83)}, inner sep=0pt, draw=red, thick] (pdfname) {};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (icloud.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (icloud.east) to [out=0, in=180] (pdfname.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudroot.east) to [out=0, in=180] (icloudpdf.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudpdf.south) to [out=-90, in=45] (pdfname.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 导入PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\enquote{我的iPad}本地可用位置导入
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/04importmenu}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importmyipad}};
+
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
+        \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
+        \node[fit={(0.008,0.4) (0.055, 0.445)}, inner sep=0pt, draw=red, thick] (import) {};
+        \node[fit={(0.57,0.67) (0.66, 0.71)}, inner sep=0pt, draw=red, thick] (ipad) {};
+        %\node[fit={(0.69,0.92) (0.78, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudroot) {};
+        \node[fit={(0.81,0.92) (0.85, 0.96)}, inner sep=0pt, draw=blue, thick] (ipadpdf) {};
+        \node[fit={(0.805,0.58) (0.92, 0.74)}, inner sep=0pt, draw=red, thick] (pdfname) {};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (ipad.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to [out=0, in=180] (pdfname.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 打开PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\enquote{邮箱}打开
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/06openfrommail}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importmyipad}};
+
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
+        \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
+        \node[fit={(0.008,0.4) (0.055, 0.445)}, inner sep=0pt, draw=red, thick] (import) {};
+        \node[fit={(0.57,0.67) (0.66, 0.71)}, inner sep=0pt, draw=red, thick] (ipad) {};
+        %\node[fit={(0.69,0.92) (0.78, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudroot) {};
+        \node[fit={(0.81,0.92) (0.85, 0.96)}, inner sep=0pt, draw=blue, thick] (ipadpdf) {};
+        \node[fit={(0.805,0.58) (0.92, 0.74)}, inner sep=0pt, draw=red, thick] (pdfname) {};
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (ipad.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to [out=0, in=180] (pdfname.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
 
 \begin{frame}{iOS平板}{Goodnotes}
   \begin{itemize}\itemsep=3pt
