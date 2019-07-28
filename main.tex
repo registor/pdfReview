@@ -724,19 +724,17 @@
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
-    \item 从\alert{QQ}\enquote{传输文件}打开
+    \item 从\alert{微信}\enquote{传输文件}打开
     \end{itemize}
   \end{itemize}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqfile}};
+      {\includegraphics[width=0.48\textwidth]{05goodnotes/08wechatopentwithmenu}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07openinqq}};
-      \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqopenwith}};
+      {\includegraphics[width=0.48\textwidth]{05goodnotes/08wechatopenwithgoodnotes}};
 
-      \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
         % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
         % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
@@ -751,59 +749,103 @@
         % \node [anchor=east] at (0,1) {\tiny 1};
         
         % 利用fit库绘制命名矩形
-        \node[fit={(0.14,0.11) (0.27, 0.41)}, inner sep=0pt, draw=red, thick] (qqfile) {};        
-        \node[fit={(0.64,0.925) (0.66, 0.958)}, inner sep=0pt, draw=red, thick] (qqfileopen) {};
-        \node[fit={(0.56,0.81) (0.662, 0.905)}, inner sep=0pt,
-        draw=red, thick] (qqopenwith) {};
-        \node[fit={(0.96,0.38) (0.995, 0.537)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
+        \node[fit={(0.47,0.93) (0.495, 0.955)}, inner sep=0pt, draw=blue, thick] (others) {};        
+        \node[fit={(0.135,0.364) (0.36, 0.636)}, inner sep=0pt, draw=blue, thick] (openmenu) {};
+        \node[fit={(0.21,0.395) (0.285, 0.432)}, inner sep=0pt,draw=red, thick] (openwith) {};
+        \node[fit={(0.898,0.52) (0.942, 0.672)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
         
         % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
-        in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (qqfileopen.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (others.west) to [out=-135,
+        in=90]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1} (openmenu.north);
         
-        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
-        [out=0, in=0]node[midway,circle,fill=black,inner
+        \draw[-{Stealth[scale=0.8]}, red, thick] (openwith.east) to
+        [out=0, in=135]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
-        (qqopenwith.east);
+        (goodnotessel.north);
         
-        \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
-        [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
-        (goodnotessel.west);
+        % \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
+        % [out=0, in=180]node[midway,circle,fill=black,inner
+        % sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        % (goodnotessel.west);
       \end{scope}
     \end{tikzpicture}
   \end{center}
 \end{frame}
 
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 操作PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 选中后进行操作
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    % node [midway, sloped, above] {}
+    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/09importedpdffile}
+    %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/09importedpdffile}          
+      % 利用fit库绘制命名矩形             
+      \node[fit={(0.458,0.922) (0.54, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};
+      \node[fit={(0.028,0.608) (0.20, 0.71)}, inner sep=0pt, draw=red, thick] (pdfname) {};
+      \node[fit={(0.59,0.44) (0.885, 0.887)}, inner sep=0pt, draw=red, thick] (pdfop) {};
+      % % 绘制箭头连线表示操作顺序      
+      % \draw[-{Stealth[scale=0.8]}, blue, thick] (openwithothers.south) to
+      % [out=-90, in=90]node [midway, sloped, above] {\tiny 点按并选择}  (goodnotessel.north); 
+      
+    \end{annotationimage}
+  \end{center}
+\end{frame}
 
 \begin{frame}{iOS平板}{Goodnotes}
   \begin{itemize}\itemsep=3pt
-  \item \enquote{批注}工具
+  \item 批注PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 点击选中的PDF文件
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    % node [midway, sloped, above] {}
+    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/10toolbar}
+    %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/10toolbar}          
+      % 利用fit库绘制命名矩形             
+      \node[fit={(0.13,0.86) (0.87, 0.91)}, inner sep=0pt, draw=red, thick] (pdffold) {};
+      \draw[annotation right = {批注工具栏 at 0.887}] to (0.849,0.887);
+      % % 绘制箭头连线表示操作顺序      
+      % \draw[-{Stealth[scale=0.8]}, blue, thick] (openwithothers.south) to
+      % [out=-90, in=90]node [midway, sloped, above] {\tiny 点按并选择}  (goodnotessel.north); 
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具栏
     \begin{itemize}
     \item 工具类型
     \item 工具属性
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.8\textwidth}{05goodnotes/10toolbar}
-      % % 绘制外观设置按钮分组示意下划线
-      % \draw[thick,blue] (0.86,0.26) -- (1.0,0.26);
-      % % 添加各图标标注
-      % \foreach \ann/\xpos in
-      % {
-      %   {附\\注\\工\\具}/0.02, {高\\亮\\工\\具}/0.07,
-      %   {下\\划\\线\\工\\具}/0.126, {删\\除\\线\\工\\具}/0.18,
-      %   {删\\除\\线\\并\\插\\入\\附\\注\\工\\具}/0.229, {插\\入\\文\\本\\工\\具}/0.283,
-      %   {文\\本\\工\\具}/0.346, {文\\本\\框\\工\\具}/0.40,
-      %   {铅\\笔\\绘\\图\\工\\具}/0.45, {铅\\笔\\擦\\工\\具}/0.51,
-      %   {图\\章\\工\\具}/0.56, {附\\加\\文\\件\\工\\具}/0.63,
-      %   {绘\\图\\工\\具}/0.7, {保\\持\\选\\择\\工\\具}/0.79,
-      %   {注\\释\\外\\观\\设\\置}/0.93
-      % }
-      % {
-      %   \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.48);
-      % }
+    \begin{annotationimage}{width=0.8\textwidth}{05goodnotes/10toolbaricons}
+      % 绘制外观设置按钮分组示意下划线
+      \draw[thick,blue] (0.86,0.26) -- (1.0,0.26);
+      % 添加各图标标注
+      \foreach \ann/\xpos in
+      {
+        {附\\注\\工\\具}/0.02, {高\\亮\\工\\具}/0.07,
+        {下\\划\\线\\工\\具}/0.126, {删\\除\\线\\工\\具}/0.18,
+        {删\\除\\线\\并\\插\\入\\附\\注\\工\\具}/0.229, {插\\入\\文\\本\\工\\具}/0.283,
+        {文\\本\\工\\具}/0.346, {文\\本\\框\\工\\具}/0.40,
+        {铅\\笔\\绘\\图\\工\\具}/0.45, {铅\\笔\\擦\\工\\具}/0.51,
+        {图\\章\\工\\具}/0.56, {附\\加\\文\\件\\工\\具}/0.63,
+        {绘\\图\\工\\具}/0.7, {保\\持\\选\\择\\工\\具}/0.79,
+        {注\\释\\外\\观\\设\\置}/0.93
+      }
+      {
+        \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.48);
+      }
     \end{annotationimage}
   \end{center}
 \end{frame}
