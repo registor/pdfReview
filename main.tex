@@ -84,6 +84,7 @@
       \end{itemize}
     \end{itemize}
     \begin{center}
+      % node[near start,circle,fill=black,,inner sep=0pt,minimum size=3pt,white] {\tiny 1}
       \begin{annotationimage}{width=0.9\textwidth}{01acrobat/02openreviewtools01}
         % 利用fit库绘制命名矩形
         \node[fit={(0.145,0.89) (0.235,0.96)}, inner sep=0pt, draw=red, thick] (view) {};
@@ -91,9 +92,17 @@
         \node[fit={(0.522,0.52) ($(0.522, 0.52) + (0.05, 0.045)$)}, inner sep=0pt, draw=red, thick] (annotation) {};
         \node[fit={(0.755,0.52) ($(0.755, 0.52) + (0.075, 0.045)$)}, inner sep=0pt, draw=red, thick] (open) {};
         % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (view.south) to [out=-90, in=180] (tools.west);
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (tools.east) to [out=0, in=180] (annotation.west);
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (annotation.east) to [out=0, in=180] (open.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (view.south) to
+        [out=-90, in=180] node[midway,circle,fill=blue,inner
+        sep=0pt,minimum size=3pt,yellow] {\scriptsize \sffamily
+          1}(tools.west); \draw[-{Stealth[scale=0.8]}, blue, thick]
+        (tools.east) to [out=0, in=180]
+        node[midway,circle,fill=blue,inner sep=0pt,minimum
+        size=3pt,yellow] {\scriptsize \sffamily 2}(annotation.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (annotation.east) to
+        [out=0, in=180]node[midway,circle,fill=blue,inner
+        sep=0pt,minimum size=3pt,yellow] {\scriptsize \sffamily 3}
+        (open.west);
       \end{annotationimage}
     \end{center}    
     \column{0.45\textwidth}
@@ -465,8 +474,13 @@
         \node[fit={(0.340,0.590) (0.379, 0.644)}, inner sep=0pt, draw=red, thick] (fold) {};
         \node[fit={(0.805,0.570) (0.868, 0.617)}, inner sep=0pt, draw=red, thick] (name) {};
         % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (fold.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (fold.east) to [out=0, in=180] (name.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
+        in=180] node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1}(fold.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (fold.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        (name.west);
       \end{scope}
     \end{tikzpicture}
   \end{center}
@@ -510,12 +524,30 @@
         \node[fit={(0.81,0.92) (0.85, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudpdf) {};
         \node[fit={(0.74,0.62) (0.79, 0.83)}, inner sep=0pt, draw=red, thick] (pdfname) {};
         % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (icloud.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (icloud.east) to [out=0, in=180] (pdfname.west);
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudroot.east) to [out=0, in=180] (icloudpdf.west);
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudpdf.south) to [out=-90, in=45] (pdfname.north);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to
+        [out=180, in=90] (new.north);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
+        in=180] node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1}(import.west);
+        
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
+        [out=0, in=180] node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily
+          2}(icloud.west);
+        
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (icloud.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3} (pdfname.west);
+        
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudroot.east) to
+        [out=0, in=180] (icloudpdf.west);
+        
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudpdf.south) to
+        [out=-90, in=45] (pdfname.north);
+        
       \end{scope}
     \end{tikzpicture}
   \end{center}
@@ -560,9 +592,20 @@
         \node[fit={(0.805,0.58) (0.92, 0.74)}, inner sep=0pt, draw=red, thick] (pdfname) {};
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (ipad.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to [out=0, in=180] (pdfname.west);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
+        in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1} (import.west);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        (ipad.west);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        (pdfname.west);
+        
         \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
       \end{scope}
     \end{tikzpicture}
@@ -575,17 +618,68 @@
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
-    \item 从\enquote{邮箱}打开
+    \item 从邮件\enquote{附件}打开
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    % node [midway, sloped, above] {}
+    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/06openfrommail}        
+      % 利用fit库绘制命名矩形             
+      \node[fit={(0.015,0.65) (0.31, 0.77)}, inner sep=0pt, draw=red, thick] (mailitem) {};
+      \node[fit={(0.328,0.365) (0.5, 0.55)}, inner sep=0pt, draw=red, thick] (attachfile) {};
+      \node[fit={(0.795,0.37) (0.89, 0.53)}, inner sep=0pt, draw=blue, thick] (goodnotessel) {};
+      % % 绘制箭头连线表示操作顺序
+      \draw[-{Stealth[scale=0.8]}, red, thick] (mailitem.south) to
+      [out=-90, in=180]node [midway, sloped, below] {\small 打开邮件}
+      (attachfile.west);
+      
+      \draw[-{Stealth[scale=0.8]}, blue, thick] (attachfile.north) to
+      [out=90, in=90]node [midway, sloped, above] {\small 长按并选择
+        \enquote{GoodNotes}}  (goodnotessel.north);      
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 打开PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\alert{Safari}\enquote{浏览器}打开
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    % node [midway, sloped, above] {}
+    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/06openfromsafra}
+    %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/06openfromsafra}          
+      % 利用fit库绘制命名矩形             
+      \node[fit={(0.844,0.92) (0.88, 0.97)}, inner sep=0pt, draw=red, thick] (openwithothers) {};
+      \node[fit={(0.885,0.53) (0.98, 0.69)}, inner sep=0pt, draw=blue, thick] (goodnotessel) {};
+      % % 绘制箭头连线表示操作顺序      
+      \draw[-{Stealth[scale=0.8]}, blue, thick] (openwithothers.south) to
+      [out=-90, in=90]node [midway, sloped, above] {\tiny 点按并选择}  (goodnotessel.north);      
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 打开PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\alert{QQ}\enquote{传输文件}打开
     \end{itemize}
   \end{itemize}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/06openfrommail}};
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqfile}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importmyipad}};
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07openinqq}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqopenwith}};
 
-      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+      \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
         % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
         % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
@@ -600,19 +694,83 @@
         % \node [anchor=east] at (0,1) {\tiny 1};
         
         % 利用fit库绘制命名矩形
-        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
-        \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
-        \node[fit={(0.008,0.4) (0.055, 0.445)}, inner sep=0pt, draw=red, thick] (import) {};
-        \node[fit={(0.57,0.67) (0.66, 0.71)}, inner sep=0pt, draw=red, thick] (ipad) {};
-        %\node[fit={(0.69,0.92) (0.78, 0.96)}, inner sep=0pt, draw=blue, thick] (icloudroot) {};
-        \node[fit={(0.81,0.92) (0.85, 0.96)}, inner sep=0pt, draw=blue, thick] (ipadpdf) {};
-        \node[fit={(0.805,0.58) (0.92, 0.74)}, inner sep=0pt, draw=red, thick] (pdfname) {};
+        \node[fit={(0.14,0.11) (0.27, 0.41)}, inner sep=0pt, draw=red, thick] (qqfile) {};        
+        \node[fit={(0.64,0.925) (0.66, 0.958)}, inner sep=0pt, draw=red, thick] (qqfileopen) {};
+        \node[fit={(0.56,0.81) (0.662, 0.905)}, inner sep=0pt,
+        draw=red, thick] (qqopenwith) {};
+        \node[fit={(0.96,0.38) (0.995, 0.537)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
+        
         % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0, in=180] (import.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to [out=0, in=180] (ipad.west);
-        \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to [out=0, in=180] (pdfname.west);
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
+        in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1} (qqfileopen.west);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
+        [out=0, in=0]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        (qqopenwith.east);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        (goodnotessel.west);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Goodnotes}
+  \begin{itemize}\itemsep=3pt
+  \item 打开PDF文件
+    \begin{itemize}
+    \item 进入\enquote{PDF批注}文件夹
+    \item 从\alert{QQ}\enquote{传输文件}打开
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqfile}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07openinqq}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
+      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqopenwith}};
+
+      \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.14,0.11) (0.27, 0.41)}, inner sep=0pt, draw=red, thick] (qqfile) {};        
+        \node[fit={(0.64,0.925) (0.66, 0.958)}, inner sep=0pt, draw=red, thick] (qqfileopen) {};
+        \node[fit={(0.56,0.81) (0.662, 0.905)}, inner sep=0pt,
+        draw=red, thick] (qqopenwith) {};
+        \node[fit={(0.96,0.38) (0.995, 0.537)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
+        
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
+        in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1} (qqfileopen.west);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
+        [out=0, in=0]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        (qqopenwith.east);
+        
+        \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
+        [out=0, in=180]node[midway,circle,fill=black,inner
+        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        (goodnotessel.west);
       \end{scope}
     \end{tikzpicture}
   \end{center}
