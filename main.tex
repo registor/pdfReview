@@ -730,6 +730,7 @@
     \item 从\alert{微信}\enquote{传输文件}打开
     \end{itemize}
   \end{itemize}
+  \vspace{-1.5ex}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
@@ -1595,7 +1596,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}[label=testframe]{iOS平板}{Notability}
+\begin{frame}{iOS平板}{Notability}
   \begin{itemize}\itemsep=3pt
   \item 用Notability打开PDF文件即可将该PDF文件导入Notability
     \begin{itemize}
@@ -1632,8 +1633,8 @@
         \node[fit={(0.556,0.115) (0.581, 0.148)}, inner sep=0pt, draw=blue, thick] (sel) {};
         \node[fit={(0.750,0.731) (0.922, 0.772)}, inner sep=0pt, draw=red, thick] (fold) {};
 
-        \node[fit={(0.565,0.85) (0.582, 0.89)}, inner sep=0pt,
-        draw=blue, fill = green!30, thick, opacity = 0.3] (import) {};
+        % \node[fit={(0.565,0.85) (0.582, 0.89)}, inner sep=0pt,
+        % draw=blue, fill = green!30, thick, opacity = 0.3] (import) {};
         
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (creat.east) to [out=0,
@@ -1641,23 +1642,444 @@
 
         \draw[-{Stealth[scale=0.8]}, red, thick] (sel.east) to [out=0,
         in=180] (fold.west);
-        (goodnotessel.west);
       \end{scope}
     \end{tikzpicture}
   \end{center}
 \end{frame}
 
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item 批注PDF文件
+    \begin{itemize}
+    \item 在批注工具栏中\alert{选择合适工具}进行批注
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.5\textwidth}{06notability/02gui02}
+    %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/10toolbar}          
+      % 利用fit库绘制命名矩形             
+      \node[fit={(0.01,0.91) (0.99, 0.97)}, inner sep=0pt, draw=red, thick] (pdffold) {};
+      \draw[annotation right = {批注工具栏 at 0.94}] to (0.97,0.94);
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item 批注PDF文件
+    \begin{itemize}
+    \item 利用\alert{放大镜}工具实现细节批注
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.48\textwidth]{06notability/02gui02}};
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.48\textwidth]{06notability/11magnifier}};
+
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+        % 绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.472,0.00) (0.498, 0.062)}, inner sep=0pt, draw=blue, thick] (icon) {};
+        \node[fit={(0.853,0.570) (0.988, 0.666)}, inner sep=0pt, draw=red, thick] (roi) {};
+        \node[fit={(0.504,0.00) (1.00, 0.397)}, inner sep=0pt, draw=blue, thick] (magnifier) {};        
+        
+        % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, red, thick] (icon.north) to [out=90,
+        in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 1} (roi.west);
+
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (roi.east) to [out=0,
+        in=0]node[midway,circle,fill=black,inner sep=0pt,minimum
+        size=3pt,white] {\scriptsize \sffamily 2} (magnifier.east);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具栏
+    \begin{itemize}
+    \item 工具类型
+    \item 工具属性
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \begin{annotationimage}{width=0.8\textwidth}{06notability/02toolbar}
+    %\begin{annotationimage}[grid]{width=0.8\textwidth}{06notability/02toolbar}      
+      % 添加各图标标注
+      \foreach \ann/\xpos in
+      {
+        {导\\出\\工\\具}/0.07, {撤\\消\\工\\具}/0.24,
+        {文\\字\\工\\具}/0.402, {铅\\笔\\工\\具}/0.44,
+        {萤\\光\\笔\\工\\具}/0.48, {橡\\皮\\擦\\工\\具}/0.52, 
+        {索\\套\\选\\择\\工\\具}/0.56, {移\\动\\工\\具}/0.595,
+        {录\\音\\工\\具}/0.735, {插\\入\\素\\材\\工\\具}/0.9,
+        {属\\性\\设\\置}/0.94, {页\\面\\边\\栏}/0.975
+      }
+      {
+        \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.30);
+      }
+    \end{annotationimage}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具属性设置
+    \begin{itemize}
+    \item 点按工具图标\alert{两次}进行工具设置
+    \item 在属性设计区设置颜色、宽度等属性
+    \end{itemize}
+  \end{itemize}
+  \vspace{-1.5ex}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.45\textwidth]{06notability/10textcol}};
+      
+      \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
+      {\includegraphics[width=0.45\textwidth]{06notability/10textfmt}};
+
+      \node[anchor=west, inner sep=2pt, above=0.2 of img2,xshift = -3.25cm,draw,blue,thick](txt)
+      {文字属性设置};
+
+      \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
+        % %绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.195,0.60) (0.302, 0.90)}, inner sep=0pt, draw=red, thick] (txtcol) {}; 
+        \node[fit={(0.515,0.52) (0.924, 0.573)}, inner sep=0pt, draw=red, thick] (txtfmt) {};
+        % % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, red, thick] (txt.west) to [out=180,
+        in=90]node[midway, sloped, above] {文字颜色} (txtcol.north);
+
+        \draw[-{Stealth[scale=0.8]}, red, thick] (txt.east) to [out=0,
+        in=90]node[midway, sloped, above] {文字样式} (txtfmt.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具属性设置
+    \begin{itemize}
+    \item 点按工具图标\alert{两次}进行工具设置
+    \item 在属性设计区设置颜色、宽度等属性
+    \end{itemize}
+  \end{itemize}
+  \vspace{-1ex}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.48\textwidth]{06notability/06pen}};
+
+      \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
+      {铅笔属性};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具属性设置
+    \begin{itemize}
+    \item 点按工具图标\alert{两次}进行工具设置
+    \item 在属性设计区设置颜色、宽度等属性
+    \end{itemize}
+  \end{itemize}
+  \vspace{-1ex}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.48\textwidth]{06notability/07highlightpen}};
+
+      \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
+      {萤光笔属性};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具属性设置
+    \begin{itemize}
+    \item 点按工具图标\alert{两次}进行工具设置
+    \item 在属性设计区设置颜色、宽度等属性
+    \end{itemize}
+  \end{itemize}
+  \vspace{-1ex}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.48\textwidth]{06notability/08eraser}};
+
+      \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
+      {橡皮擦属性};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{批注}工具属性设置
+    \begin{itemize}
+    \item 点按工具图标\alert{两次}进行工具设置
+    \item 在属性设计区设置颜色、宽度等属性
+    \end{itemize}
+  \end{itemize}
+  \vspace{-1ex}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=0.48\textwidth]{06notability/09seltool}};
+
+      \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
+      {索套属性};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{columns}[T]
+    \column{0.4\textwidth}
+  \begin{itemize}\itemsep=8pt
+  \item \enquote{\alert{导出}}批注结果
+    \begin{itemize}\itemsep=8pt
+    \item 选择发送方式
+      \begin{itemize}\itemsep=10pt
+      \item 邮件(\alert{强烈推荐})
+      \item 网盘(\alert{不}推荐)
+      \item iTunes  
+      \item 其它应用\\
+        --微信\\--QQ\\--\ldots
+      \item \ldots
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+    \column{0.55\textwidth}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=1.00\textwidth]{06notability/12exportmenu}};
+
+      \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
+        % %绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
+        \node[fit={(0.01,0.202) (0.393, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
+        % % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (export.east) to [out=0,
+        in=90] (menu.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{columns}[T]
+    \column{0.4\textwidth}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{\alert{导出}}批注结果
+    \begin{itemize}\itemsep=3pt
+    \item 电子邮件导出
+      \begin{itemize}\itemsep=8pt
+      \item 格式---PDF
+      \item PDF选项
+      \item \ldots
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+  %\vspace{-1.5ex}
+  \column{0.55\textwidth}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=1.00\textwidth]{06notability/13exportemail}};
+
+      \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
+        % %绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
+        \node[fit={(0.01,0.202) (0.393, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
+        % % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (export.east) to [out=0,
+        in=90] (menu.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{iOS平板}{Notability}
+  \begin{columns}[T]
+    \column{0.4\textwidth}
+  \begin{itemize}\itemsep=3pt
+  \item \enquote{\alert{导出}}批注结果
+    \begin{itemize}\itemsep=3pt
+    \item 其它应用导出
+      \begin{itemize}\itemsep=8pt
+      \item 微信
+      \item QQ
+      \item GoodReader
+      \item \ldots
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+  %\vspace{-1.5ex}
+  \column{0.55\textwidth}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node[anchor=south west, inner sep=0](img1) at (0,0)
+      {\includegraphics[width=1.00\textwidth]{06notability/14exportothersel}};
+
+      \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
+        % %绘制坐标辅助网络
+        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+        % \foreach \x in {0,1,...,9} {
+        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+        % }
+        % \node [anchor=north] at (1,0) {\tiny 1};
+
+        % \foreach \y in {0,1,...,9} {
+        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+        % }
+        % \node [anchor=east] at (0,1) {\tiny 1};
+        
+        % 利用fit库绘制命名矩形
+        \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
+        \node[fit={(0.01,0.312) (0.402, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
+        % % 绘制箭头连线表示操作顺序
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (export.east) to [out=0,
+        in=90] (menu.north);
+      \end{scope}
+    \end{tikzpicture}
+  \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[standout,plain]
+  说明：\\  
+  只要\alert{熟悉一个}就好\\
+  手写能够留下\alert{真迹}\\
+  肯定还有你偏好的其它软件
+\end{frame}
+
 \section{\LaTeX 源码修订}
 \subsection{changes宏包}
-\subsection{todonotes宏包}
-\subsection{pdfreview宏包}
+
+\begin{frame}[label=testframe]{\LaTeX 源码修订}{changes宏包}
+    \begin{columns}[T]
+    \column{0.45\textwidth}
+    \begin{itemize}\itemsep=8pt
+    \item 基本功能
+      \begin{itemize}
+      \item \LaTeX 源码级批注
+      \end{itemize}
+    \item 适用平台
+      \begin{itemize}
+      \item \LaTeX 运行平台
+      \end{itemize}
+    \item 下载链接
+      \begin{itemize}
+      \item \LaTeX 发行版自带
+      \end{itemize}
+    \item 授权
+      \begin{itemize}
+      \item \alert{免费}
+      \end{itemize}
+    \end{itemize}
+    \column{0.45\textwidth}
+    \includegraphics[height=0.75\textheight]{07changes/todonotes}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[label=testframe]{\LaTeX 源码修订}{changes宏包}
+    \begin{columns}[T]
+    \column{0.45\textwidth}
+    \begin{itemize}\itemsep=8pt
+    \item 修订操作
+      \begin{itemize}\itemsep=10pt
+      \item 引入changes宏包
+      \item 设置审阅人属性
+      \item 标记修订内容
+      \item 高亮显示和添加批注
+      \item 用\LaTeX 对源文档进行排版
+      \item 输出修订列表
+      \item 接受/拒绝修订后删除各类标记
+      \end{itemize}    
+    \end{itemize}
+    \column{0.45\textwidth}
+    \includegraphics[height=0.75\textheight]{07changes/todonotes}
+  \end{columns}
+\end{frame}
+
 
 %\section{小结}
 \begin{frame}[standout,plain]
-  ...
+  肯定有不完善的地方\\
+  欢迎批评指正\\...
 \end{frame}
 
 \end{document}
+
+% \begin{frame}{\LaTeX 源码修订}{changes宏包}
+  
+% \end{frame}
+
+%[label=testframe]
 
 %%% Local Variables:
 %%% mode: latex
