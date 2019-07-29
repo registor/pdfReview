@@ -1,0 +1,23 @@
+\documentclass{ctexart}
+
+% 可用颜色区分各作者、审阅者
+\usepackage[dvipsnames]{xcolor}
+\usepackage{changes}
+
+% 设定作者颜色、id
+\definechangesauthor[name=张生, color=BrickRed]{Zh}
+\definechangesauthor[name=王教授, color=RoyalBlue]{profW}
+
+\begin{document}
+
+...\highlight[id=Zh, comment=不错的学校！]{西北农林科技大学}...。
+
+...\added[id=profW, comment=第1任校长是谁？]{，第1任校长是于右任}。...。
+
+...\deleted[id=profW, comment=表达清楚了！]{，进入了新的发展阶段}。...
+
+...\replaced[id=Zh, comment=请认真查对！]{2183人}{2813人}...
+
+...\comment[id=Zh]{强！}。
+
+\end{document}

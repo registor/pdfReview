@@ -26,7 +26,7 @@
   \qrcode[hyperlink, height=1.6cm]{https://github.com/registor/pdfReview}}
 
 % 设定仅编译的帧，加快编译速度
-\includeonlyframes{testframe}
+%\includeonlyframes{testframe}
 
 \begin{document}
 
@@ -2020,7 +2020,7 @@
 \section{\LaTeX 源码修订}
 \subsection{changes宏包}
 
-\begin{frame}[label=testframe]{\LaTeX 源码修订}{changes宏包}
+\begin{frame}{\LaTeX 源码修订}{changes宏包}
     \begin{columns}[T]
     \column{0.45\textwidth}
     \begin{itemize}\itemsep=8pt
@@ -2042,15 +2042,16 @@
       \end{itemize}
     \end{itemize}
     \column{0.45\textwidth}
-    \includegraphics[height=0.75\textheight]{07changes/todonotes}
+    \centering
+    \includegraphics[height=1.0\textheight]{07changes/01changes}
   \end{columns}
 \end{frame}
 
-\begin{frame}[label=testframe]{\LaTeX 源码修订}{changes宏包}
-    \begin{columns}[T]
+\begin{frame}{\LaTeX 源码修订}{changes宏包}
+  \begin{columns}[T]
     \column{0.45\textwidth}
     \begin{itemize}\itemsep=8pt
-    \item 修订操作
+    \item 修订步骤
       \begin{itemize}\itemsep=10pt
       \item 引入changes宏包
       \item 设置审阅人属性
@@ -2059,11 +2060,39 @@
       \item 用\LaTeX 对源文档进行排版
       \item 输出修订列表
       \item 接受/拒绝修订后删除各类标记
-      \end{itemize}    
+      \end{itemize}
     \end{itemize}
-    \column{0.45\textwidth}
-    \includegraphics[height=0.75\textheight]{07changes/todonotes}
+    \column{0.45\textwidth} \centering
+    \includegraphics[height=1.0\textheight]{07changes/02changesscheme}
   \end{columns}
+\end{frame}
+
+\begin{frame}{\LaTeX 源码修订}{changes宏包}
+  \begin{itemize}%\itemsep=8pt
+  \item 修订命令\footnote[frame,1]{详情请用：\enquote{\alert{texdoc changes}命令}查阅宏
+      包说明书。}
+    \begin{itemize}%\itemsep=10pt
+    \item 审阅人设置命令
+      \begin{itemize}
+      \item \texinline{\definechangesauthor[name=<name>, color=<color>]{<id>}}
+      \end{itemize}
+    \item 修订命令
+      \begin{itemize}
+      \item \texinline{\added[id=<id>, comment=<comment>]{<new text>}}
+      \item \texinline{\deleted[id=<id>, comment=<comment>]{<old text>}}
+      \item \texinline{\replaced[id=<id>, comment=<comment>]{<new text>}{<old text>}}  
+      \item \texinline{\highlight[id=<id>, comment=<comment>]{<text>}}
+      \item \texinline{\comment[id=<id>]{<comment>}}  
+      \end{itemize}
+    \item 输出修订列表命令
+      \begin{itemize}
+      \item \texinline{\listofchanges[style=<style>, title=<title>, show=<type>]}
+      \end{itemize}
+    \item 宏包选项
+    \item 标记设置命令
+    \item 其它命令
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 

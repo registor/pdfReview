@@ -175,6 +175,90 @@
 % \usetikzlibrary{matrix}
 % \usetikzlibrary{backgrounds}
 
+% 设置minted宏包编排代码的参数及用于latex代码排版的简化命令
+\setminted{fontsize=\footnotesize, breaklines=true, breakautoindent=false}
+\newmintinline{tex}{fontsize=\footnotesize}
+\newmintinline{sh}{breaklines=true}
+\newmintinline[texinlinett]{tex}{escapeinside=||}
+\newminted{tex}{fontsize=\scriptsize, bgcolor=yellow!20, frame=lines, autogobble}
+\newminted[texcodett]{tex}{autogobble, fontsize=\scriptsize, bgcolor=yellow!20, frame=lines, escapeinside=||}
+\newminted[shell]{sh}{autogobble,frame=lines}
+\newmintedfile{tex}{bgcolor=yellow!20, fontsize=\footnotesize, frame=lines}
+
+%====================用tcolorbox定义一个代码盒子==============================
+\tcbuselibrary{skins, xparse, minted}
+%\usetikzlibrary{shapes.geometric}
+%------------------------------------------------------------------------------------
+% tcolorbox lang代码样式定义
+%------------------------------------------------------------------------------------
+\tcbset{%
+  lang/.style={%
+    drop shadow,%    
+    arc=0mm,%
+    right=0pt,%
+    top=0pt,%
+    bottom=0pt,%
+    left=0pt,%
+    enhanced jigsaw,
+    %text width = \textwidth,
+    %righthand width=3cm,
+    %lowerbox=invisible,
+    %lower separated=false,        
+    %colframe=tcbcolback!60!black,%
+    colframe=blue!50!black,%
+    colback=yellow!20,%tcbcolback!30!white,%
+    colbacktitle=tcbcolback!5!yellow!10!white,%
+    fonttitle=\scriptsize\bfseries,%
+    coltitle=black,%
+    attach boxed title to top left={%
+      xshift=0.6cm,%
+      yshift*=0.5mm-\tcboxedtitleheight%
+    },%
+    %varwidth boxed title*=-3cm,%
+    boxed title style={%
+      frame code={%
+        \path[fill=blue!55!black]([yshift=-1mm,xshift=-1mm]frame.north west)%
+        arc[start angle=0,end angle=180,radius=1mm]([yshift=-1mm,xshift=1mm]frame.north east)%
+        arc[start angle=180,end angle=0,radius=1mm];%
+        \path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+        middle color=tcbcolback!80!black]([xshift=-2mm]frame.north west)%
+        --([xshift=2mm]frame.north east)[rounded corners=1.0mm]%
+        --([xshift=1mm,yshift=-1mm]frame.north east)%
+        --(frame.south east)%
+        --(frame.south west)%
+        --([xshift=-1mm,yshift=-1mm]frame.north west)[sharp corners]%
+        --cycle;%
+      },%
+      interior engine=empty,% 
+      size=small,
+      top=-1mm,
+      bottom=-1mm,
+    },%
+  }% 
+}% end tcolorbox lang style
+
+% ===================================
+% langPyOne environment definition 
+% ===================================
+\DeclareTCBListing{textcb}{ O{} m }{%
+  listing engine=minted,%
+  minted style=default,%
+  minted options={%
+    breaklines,%
+    fontsize=\scriptsize,%
+    %linenos,%
+    %numbersep=1mm%
+    escapeinside=#1,
+    autogobble,
+  },%
+  listing only,%
+  lang,%
+  title={#2},%
+  minted language=tex%
+}% end codebox
+% ===========================================================
+
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "../main.tex"
