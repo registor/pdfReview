@@ -3,14 +3,14 @@
 
 % 可用颜色区分各作者、审阅者
 \usepackage[dvipsnames]{xcolor}
-\usepackage{changes}
+\usepackage[authormarkuptext=name]{changes}
 
 % 设定作者颜色、id
-\def\zhang{\protect\includegraphics[width=1.5cm]{xiaogege}}
-\def\profwang{\protect\includegraphics[width=1.5cm]{hlz}}
+\def\zhang{\protect\includegraphics[width=1.0cm]{xiaogege}}
+\def\profwang{\protect\includegraphics[width=1.0cm]{hlz}}
 
-\definechangesauthor[name=张生, color=BrickRed]{Zh}
-\definechangesauthor[name=王教授, color=RoyalBlue]{profW}
+\definechangesauthor[name=\zhang, color=BrickRed]{Zh}
+\definechangesauthor[name=\profwang, color=RoyalBlue]{profW}
 
 \begin{document}
 
