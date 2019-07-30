@@ -1,14 +1,21 @@
 # -*- mode: gitignore; -*-
 
+# cancle release folder
+release*
+./release/
+/release/*
+./release/*
+
+# ref folder
+refs*
+./refs/
+/refs/*
+./refs/*
+
 # fonts folder
 ./fonts/
 /fonts/*
 ./fonts/*
-
-# ref folder
-./ref/
-/ref/*
-./ref/*
 
 # ======emacs editor======
 *~
