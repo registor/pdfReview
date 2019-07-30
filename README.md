@@ -5,6 +5,12 @@ PDF文件常用批注方案简介，主要介绍PC端Acrobat Reader、Foxit福�
 
 Happy LaTeXing！~
 
+![](./screenshot/pdfreview01.png)
+![](./screenshot/pdfreview02.png)
+![](./screenshot/pdfreview03.png)
+![](./screenshot/pdfreview04.png)
+![](./screenshot/pdfreview05.png)
+
 ## 注意
 
 1. 本文档要求 TeXLive、MacTeX、MikTeX 不低于 2018 年的发行版，并且尽可能升级到最新，强烈建议使用TeXLive2019。
