@@ -96,18 +96,16 @@
         \node[fit={(0.755,0.52) ($(0.755, 0.52) + (0.075, 0.045)$)}, inner sep=0pt, draw=red, thick] (open) {};
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (view.south) to
-        [out=-90, in=180] node[midway,circle,fill=blue,inner
-        sep=0pt,minimum size=3pt,yellow] {\scriptsize \sffamily
-          1}(tools.west); \draw[-{Stealth[scale=0.8]}, blue, thick]
-        (tools.east) to [out=0, in=180]
-        node[midway,circle,fill=blue,inner sep=0pt,minimum
-        size=3pt,yellow] {\scriptsize \sffamily 2}(annotation.west);
+        [out=-90, in=180] node[midway,circle,fill=blue,inner sep=0pt,minimum size=3pt,text=yellow]
+        {\scriptsize \sffamily 1}(tools.west);
+        \draw[-{Stealth[scale=0.8]}, blue, thick] (tools.east) to [out=0, in=180]
+        node[midway,circle,fill=blue,inner sep=0pt,minimum size=3pt,text=yellow]
+        {\scriptsize \sffamily 2}(annotation.west);
         \draw[-{Stealth[scale=0.8]}, blue, thick] (annotation.east) to
-        [out=0, in=180]node[midway,circle,fill=blue,inner
-        sep=0pt,minimum size=3pt,yellow] {\scriptsize \sffamily 3}
-        (open.west);
+        [out=0, in=180]node[midway,circle,fill=blue,inner sep=0pt,minimum size=3pt,text=yellow]
+        {\scriptsize \sffamily 3}(open.west);
       \end{annotationimage}
-    \end{center}    
+    \end{center}
     \column{0.45\textwidth}
     \includegraphics[height=0.8\textheight]{01acrobat/03openreviewtools02}\qquad
     \includegraphics[height=0.8\textheight]{01acrobat/03openreviewtools03}
@@ -479,10 +477,10 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
         in=180] node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1}(fold.west);
+        size=3pt,text=white] {\scriptsize \sffamily 1}(fold.west);
         \draw[-{Stealth[scale=0.8]}, red, thick] (fold.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (name.west);
       \end{scope}
     \end{tikzpicture}
@@ -517,9 +515,10 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
-        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
+        \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};
+
         \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
         \node[fit={(0.008,0.4) (0.055, 0.445)}, inner sep=0pt, draw=red, thick] (import) {};
         \node[fit={(0.57,0.73) (0.66, 0.77)}, inner sep=0pt, draw=red, thick] (icloud) {};
@@ -531,19 +530,19 @@
         [out=180, in=90] (new.north);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
-        in=180] node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1}(import.west);
+        in=180] node[midway,circle,inner sep=0pt,minimum
+        size=3pt,text=white,fill=black] {\scriptsize \sffamily 1}(import.west);
         
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
-        [out=0, in=180] node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily
+        [out=0, in=180] node[midway,circle,inner
+        sep=0pt,minimum size=3pt,text=white,fill=black] {\scriptsize \sffamily
           2}(icloud.west);
         
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (icloud.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3} (pdfname.west);
+        sep=0pt,minimum size=3pt,text=white,fill=black] {\scriptsize \sffamily 3} (pdfname.west);
         
         \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudroot.east) to
         [out=0, in=180] (icloudpdf.west);
@@ -597,16 +596,16 @@
         \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to [out=180, in=90] (new.north);
         \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (import.west);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (import.west);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (ipad.west);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
         (pdfname.west);
         
         \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
@@ -706,16 +705,16 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (qqfileopen.west);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (qqfileopen.west);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
         [out=0, in=0]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (qqopenwith.east);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
         (goodnotessel.west);
       \end{scope}
     \end{tikzpicture}
@@ -761,11 +760,11 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (others.west) to [out=-135,
         in=90]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (openmenu.north);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (openmenu.north);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (openwith.east) to
         [out=0, in=135]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (goodnotessel.north);
         
         % \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
@@ -1527,16 +1526,16 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (qqfileopen.west);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (qqfileopen.west);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
         [out=0, in=0]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (qqopenwith.east);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
         (goodnotessel.west);
       \end{scope}
     \end{tikzpicture}
@@ -1580,11 +1579,11 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (others.west) to [out=-135,
         in=90]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (openmenu.north);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (openmenu.north);
         
         \draw[-{Stealth[scale=0.8]}, red, thick] (openwith.east) to
         [out=0, in=135]node[midway,circle,fill=black,inner
-        sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 2}
+        sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (goodnotessel.north);
         
         % \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
@@ -1700,11 +1699,11 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (icon.north) to [out=90,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 1} (roi.west);
+        size=3pt,text=white] {\scriptsize \sffamily 1} (roi.west);
 
         \draw[-{Stealth[scale=0.8]}, blue, thick] (roi.east) to [out=0,
         in=0]node[midway,circle,fill=black,inner sep=0pt,minimum
-        size=3pt,white] {\scriptsize \sffamily 2} (magnifier.east);
+        size=3pt,text=white] {\scriptsize \sffamily 2} (magnifier.east);
       \end{scope}
     \end{tikzpicture}
   \end{center}
