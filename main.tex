@@ -21,9 +21,9 @@
 
 \institute[教发中心]{教学发展中心\\西北农林科技大学}
 
-\titlegraphic{%
-  \vspace{3.0cm}
-  \qrcode[hyperlink, height=1.6cm]{https://github.com/registor/pdfReview}}
+% \titlegraphic{%
+%   \vspace{3.0cm}
+%   \qrcode[hyperlink, height=1.6cm]{https://github.com/registor/pdfReview}}
 
 % 设定仅编译的帧，加快编译速度
 %\includeonlyframes{testframe}
@@ -373,7 +373,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Foxit福昕}
+\begin{frame}{PC计算机}{Okular}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
@@ -386,7 +386,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Foxit福昕}
+\begin{frame}{PC计算机}{Okular}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
@@ -400,6 +400,94 @@
     \end{annotationimage}
   \end{center}
 \end{frame}
+
+\subsection{Xournal++}
+
+\begin{frame}{PC计算机}{Xournal++}
+  \begin{columns}[c]
+    \column{0.35\textwidth}
+    \begin{itemize}
+    \item 基本功能
+      \begin{itemize}
+      \item 手写笔记
+      \item \alert{标注}PDF文档
+      \item 其它
+      \end{itemize}
+    \item 适用平台
+      \begin{itemize}
+      \item Windows
+      \item Mac OS
+      \item Linux
+      \end{itemize}
+    \item 下载链接
+      \begin{itemize}
+      \item 官网
+        \link{https://xournalpp.github.io/}
+      \end{itemize}
+    \item 授权
+      \begin{itemize}
+      \item \alert{免费}
+      \end{itemize}
+    \end{itemize}
+    \column{0.55\textwidth}
+    \vspace{1ex}
+    \includegraphics[width=0.85\textwidth]{08xournal++/01xournalabout}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PC计算机}{Xournal++}
+  \begin{itemize}
+  \item \enquote{标注}工具栏
+  \end{itemize}
+  \vspace{3ex}
+  \begin{center}
+      \begin{annotationimage}{width=0.95\textwidth}{08xournal++/02xournaltoolbar}
+      % 绘制外观设置按钮分组示意下划线
+      \draw[thick,blue] (0.52,0.20) -- (0.59,0.20);
+      \draw[thick,blue] (0.65,0.20) -- (1.00,0.20);
+      % 添加各图标标注
+      \foreach \ann/\xpos in
+      {
+        {画\\笔\\工\\具}/0.018,
+        {橡\\皮\\工\\具}/0.070,
+        {高\\亮\\工\\具}/0.124,
+        {插\\入\\图\\像}/0.155,
+        {插\\入\\文\\本}/0.182,
+        {插\\入\\公\\式}/0.210,
+        {插\\入\\图\\形}/0.255,
+        {旋\\转\\吸\\附}/0.302,
+        {网\\格\\截\\图}/0.330,
+        {填\\充\\图\\形}/0.385,
+        {垂\\直\\间\\距}/0.422,
+        {移\\动\\对\\象}/0.453,
+        {缺\\省\\工\\具}/0.490,
+        {画\\笔\\宽\\度}/0.556,
+        {填\\充\\工\\具}/0.625,
+        {画\\笔\\颜\\色}/0.820
+      }
+      {
+        \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.48);
+      }
+    \end{annotationimage}
+    % \includegraphics[width=0.40\textwidth]{08xournal++/04wacom}
+  \end{center}
+\end{frame}
+
+\begin{frame}{PC计算机}{Xournal++}
+  \begin{itemize}
+  \item 手写与\enquote{标注}
+  \end{itemize}
+  \vspace{2ex}
+  \begin{columns}[c]
+    \column{0.75\textwidth}
+    \centering
+    \includegraphics[width=0.90\textwidth]{08xournal++/03xournalex01}
+    \column{0.25\textwidth}
+    \centering
+    \includegraphics[width=1.00\textwidth]{08xournal++/04wacom}
+  \end{columns}
+\end{frame}
+
 \begin{frame}[standout,plain]
   说明：\\
   软件其他功能也很强大\\
