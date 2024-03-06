@@ -1,8 +1,9 @@
 %\documentclass[fontset = none, t, aspectratio=169]{ctexbeamer}
 \documentclass[fontset = none, t, aspectratio=169]{ctexbeamer}
 
-% 修改自萧山主题的凤岗主题
-\usetheme{nwafufengang}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\usetheme{nwafufengang} % 凤岗主题
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 % 载入需要的宏包
 \input{settings/packages.tex}
@@ -10,31 +11,35 @@
 \input{settings/format.tex}
 
 % Information
-\title[pdfReview]{\Large PDF文件常用批注方案简介}
+\title[pdfReview]{\Large PDF文件常用批注方案}
 
-%\subtitle{凤岗主题 V\ 2.0}
+\author[Nine, G.]{ 耿楠 }
+\date{\tosemester}
+\institute[%
+CS, CIE\\
+NWSUAF\\
+Yangling, China ] % 可选项，在每页边栏的底部显示
+{% 显示在标题页
+  \cs \\
+  \cie
 
-\author[N. Geng]{耿楠}
-
-\date{\tosemester} % 也可以使用类似\date[2017/04/20]{\zhdate{2017/04/20}}的
-              % 方式指定时间
-
-\institute[教发中心]{教学发展中心\\西北农林科技大学}
-
-% \titlegraphic{%
-%   \vspace{3.0cm}
-%   \qrcode[hyperlink, height=1.6cm]{https://github.com/registor/pdfReview}}
+  % 在此要有一个空行，否则会在大学和国家之间产生额外的空白(I do not
+  % 不知道为什么;( )
+}
+% ==================================================
 
 % 设定仅编译的帧，加快编译速度
-%\includeonlyframes{testframe}
+% \includeonlyframes{testframe}
+% ==================================================
 
 \begin{document}
 
-\begin{frame}[plain,noframenumbering]
-  \maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 标题页
+\begin{frame}[plain,noframenumbering] % plain选项移除标题页的边栏和页眉
+  \titlepage
 \end{frame}
 
-%\tableofcontents
 
 \begin{frame}{目录}{主要内容}
   %\centering
@@ -43,12 +48,17 @@
     \tableofcontents
   \end{multicols}  
 \end{frame}
+%
+% \begin{frame}[fragile]{目录}
+%   \tableofcontents
+% \end{frame}
 
-\section{PC计算机}
+\section{PC端批注}
 \subsection{Acrobat Reader}
-\begin{frame}{PC计算机}{Acrobat Reader DC}
-  \begin{columns}[c]
+\begin{frame}{PC端批注}{Acrobat Reader DC}
+  \begin{columns}[c,onlytextwidth]
     \column{0.35\textwidth}
+    \begin{spacing}{1.2}
     \begin{itemize}
     \item 基本功能
       \begin{itemize}
@@ -64,20 +74,21 @@
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item 官网\link{https://get.adobe.com/cn/reader/otherversions/}
+        \item \href{https://get.adobe.com/cn/reader/otherversions/}{Adobe官网}
       \end{itemize}
     \item 授权
       \begin{itemize}
       \item \alert{免费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.55\textwidth}
     \includegraphics[width=0.9\textwidth]{01acrobat/01aboutacrobatreaderdc}
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Acrobat Reader DC}
-  \begin{columns}[T]
+\begin{frame}{PC端批注}{Acrobat Reader DC}
+  \begin{columns}[T,onlytextwidth]
     \column{0.55\textwidth}
     \begin{itemize}
     \item 打开\enquote{注释}工具栏
@@ -88,7 +99,7 @@
     \end{itemize}
     \begin{center}
       % node[near start,circle,fill=black,,inner sep=0pt,minimum size=3pt,white] {\tiny 1}
-      \begin{annotationimage}{width=0.9\textwidth}{01acrobat/02openreviewtools01}
+      \begin{annotationimage}{width=0.80\textwidth}{01acrobat/02openreviewtools01}
         % 利用fit库绘制命名矩形
         \node[fit={(0.145,0.89) (0.235,0.96)}, inner sep=0pt, draw=red, thick] (view) {};
         \node[fit={(0.23,0.53) ($(0.23, 0.53) + (0.07, 0.045)$)}, inner sep=0pt, draw=red, thick] (tools) {};
@@ -107,12 +118,13 @@
       \end{annotationimage}
     \end{center}
     \column{0.45\textwidth}
-    \includegraphics[height=0.8\textheight]{01acrobat/03openreviewtools02}\qquad
-    \includegraphics[height=0.8\textheight]{01acrobat/03openreviewtools03}
+    \centering
+    \includegraphics[height=0.70\textheight]{01acrobat/03openreviewtools02}\qquad
+    \includegraphics[height=0.70\textheight]{01acrobat/03openreviewtools03}
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Acrobat Reader DC}
+\begin{frame}{PC端批注}{Acrobat Reader DC}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
@@ -120,7 +132,7 @@
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03openreviewtools04}
+    \begin{annotationimage}{width=0.70\textwidth}{01acrobat/03openreviewtools04}
         % 利用fit库绘制命名矩形
         \node[fit={(0.285,0.81) (0.72, 0.85)}, inner sep=0pt, draw=red, thick] (tools) {};
         % 绘制说明标记
@@ -131,14 +143,14 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Acrobat Reader DC}
+\begin{frame}{PC端批注}{Acrobat Reader DC}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
     \item \enquote{批注}工具
     \end{itemize}
   \end{itemize}
-  
+
   \begin{center}
     \begin{annotationimage}{width=0.8\textwidth}{01acrobat/03reviewicons01}
       % 绘制外观设置按钮分组示意下划线
@@ -158,37 +170,18 @@
       {
         \draw[annotation below = {{\ann} at \xpos}] to (\xpos,0.48);
       }
-      % \draw[annotation below = {附\\注\\工\\具 at 0.02}] to (0.02,0.5);
-      % \draw[annotation below = {高\\亮\\工\\具 at 0.07}] to (0.07,0.5);
-      % \draw[annotation below = {下\\划\\线\\工\\具 at 0.126}] to (0.126,0.5);
-      % \draw[annotation below = {删\\除\\线\\工\\具 at 0.18}] to (0.18,0.5);
-      % \draw[annotation below = {删\\除\\附\\注\\工\\具 at 0.229}] to (0.229,0.5);
-      % \draw[annotation below = {插\\入\\文\\本\\工\\具 at 0.283}] to (0.283,0.5);
-      % \draw[annotation below = {文\\本\\工\\具 at 0.346}] to (0.346,0.5);
-      % \draw[annotation below = {文\\本\\框\\工\\具 at 0.40}] to (0.40,0.5);
-      % \draw[annotation below = {铅\\笔\\绘\\图\\工\\具 at 0.45}] to (0.45,0.5);
-      % \draw[annotation below = {铅\\笔\\擦\\工\\具 at 0.51}] to (0.51,0.5);
-      % \draw[annotation below = {图\\章\\工\\具 at 0.56}] to (0.56,0.5);
-      % \draw[annotation below = {附\\加\\文\\件\\工\\具 at 0.63}] to (0.63,0.5);
-      % \draw[annotation below = {绘\\图\\工\\具 at 0.7}] to (0.7,0.5);
-      % \draw[annotation below = {保\\持\\选\\择\\工\\具 at 0.79}] to (0.79,0.5);
-      % \draw[thick,blue] (0.86,0.28) -- (1.0,0.28);
-      % \draw[annotation below = {注\\释\\外\\观\\设\\置 at 0.93}] to (0.93,0.5); 
-      % 附注工具、高亮工具、下划线工具、删除线工具、删除附注工具、插入
-      % 文本工具、文本注释工具、文本框工具、铅笔工具、铅笔橡皮擦工具、图章工具、附
-      % 加文件、绘图工具、保持选择工具、注释的外观工具
     \end{annotationimage}
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Acrobat Reader DC}
+\begin{frame}{PC端批注}{Acrobat Reader DC}
   \begin{itemize}
   \item 使用\enquote{批注}工具添加注释
     \begin{itemize}
-    \item 详见：\link{https://helpx.adobe.com/cn/acrobat/using/commenting-pdfs.html}
+    \item \href{https://helpx.adobe.com/cn/acrobat/using/commenting-pdfs.html}{可以Adobe官网查阅批注工具使用说明}
     \end{itemize}
   \end{itemize}
-  
+
   \begin{center}
     \begin{annotationimage}{width=0.55\textwidth}{01acrobat/04adddeleteline}      
     \end{annotationimage}
@@ -197,12 +190,14 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Acrobat Reader DC}
-  \begin{columns}[t]
+\begin{frame}{PC端批注}{Acrobat Reader DC}
+  \vspace{-3ex}
+  \begin{columns}[t,onlytextwidth]
     \column{0.35\textwidth}
+    \begin{spacing}{2.0}
     \begin{itemize}
     \item 管理注释
-      \begin{itemize}\itemsep=10pt
+      \begin{itemize}%\itemsep=10pt
       \item 复制
       \item 编辑
       \item 删除
@@ -211,7 +206,8 @@
       \item 添加勾形
       \end{itemize}
     \end{itemize}
-    \column{0.45\textwidth}
+    \end{spacing}
+    \column{0.55\textwidth}
     \begin{center}
       \begin{annotationimage}{height=0.75\textheight}{01acrobat/04editreviewcontents}
       \end{annotationimage}
@@ -220,8 +216,8 @@
 \end{frame}
 
 \subsection{Foxit福昕}
-\begin{frame}{PC计算机}{Foxit福昕}
-  \begin{columns}[c]
+\begin{frame}{PC端批注}{Foxit福昕}
+  \begin{columns}[c, onlytextwidth]
     \column{0.35\textwidth}
     \begin{itemize}
     \item 基本功能
@@ -240,11 +236,11 @@
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item 官网\link{https://www.foxitsoftware.cn/downloads/}
+        \item \href{https://www.foxitsoftware.cn/downloads/}{Foxit官网}
       \end{itemize}
     \item 授权
       \begin{itemize}
-      \item \alert{免费}
+      \item 基础功能\alert{免费}
       \end{itemize}
     \end{itemize}
     \column{0.55\textwidth}
@@ -252,20 +248,21 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Foxit福昕}
+\begin{frame}{PC端批注}{Foxit福昕}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
     \item \menu{注释}菜单打开\enquote{注释}工具栏
     \end{itemize}
   \end{itemize}
+  \vspace{8ex}
   \begin{center}
     \begin{annotationimage}{width=0.9\textwidth}{02foxitreader/03foxitanntoolbar}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Foxit福昕}
+\begin{frame}{PC端批注}{Foxit福昕}
   \begin{itemize}
   \item \enquote{注释}工具栏
     \begin{itemize}
@@ -275,16 +272,17 @@
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.5\textwidth}{02foxitreader/02foxitgui}
+    \begin{annotationimage}{width=0.65\textwidth}{02foxitreader/02foxitgui}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
 
 \subsection{金山PDF}
-\begin{frame}{PC计算机}{金山PDF}
-  \begin{columns}[c]
+\begin{frame}{PC端批注}{金山PDF}
+  \begin{columns}[c,onlytextwidth]
     \column{0.35\textwidth}
+    \begin{spacing}{1.3}
     \begin{itemize}
     \item 基本功能
       \begin{itemize}
@@ -299,51 +297,53 @@
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item 官网\link{https://www.wps.cn/product/kingsoftpdf/}
+        \item \href{https://www.wps.cn/product/kingsoftpdf/}{金山PDF官网}
       \end{itemize}
     \item 授权
       \begin{itemize}
-      \item \alert{免费}
+      \item 基础功能\alert{免费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.55\textwidth}
     \includegraphics[width=1.0\textwidth]{03kingsoftpdf/01kingsoftpdfabout}
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{金山PDF}
+\begin{frame}{PC端批注}{金山PDF}
   \begin{itemize}
-  \item \enquote{注释}工具栏
+  \item \enquote{批注}工具栏
     \begin{itemize}
-    \item \menu{注释}菜单打开\enquote{注释}工具栏
+    \item \menu{批注}菜单打开\enquote{批注}工具栏
     \end{itemize}
   \end{itemize}
+  \vspace{5ex}
   \begin{center}
     \begin{annotationimage}{width=0.9\textwidth}{03kingsoftpdf/03kingsoftpdfanntoolbar}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{金山PDF}
+\begin{frame}{PC端批注}{金山PDF}
   \begin{itemize}
-  \item \enquote{注释}工具栏
+  \item \enquote{批注}工具栏
     \begin{itemize}
-    \item 添加各类\enquote{注释}\footnote[frame,1]{与Acrobat Reader DC
+    \item 添加各类\enquote{批注}\footnote[frame,1]{与Acrobat Reader DC
         软件操作基本一致。}
-    \item 管理各类\enquote{注释}\footnote[frame,2]{注意使用
-        \enquote{\alert{超级注释模式}}。}
+    \item 管理各类\enquote{批注}
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.5\textwidth}{03kingsoftpdf/042kingsoftpdfsuper}
+    \begin{annotationimage}{width=0.65\textwidth}{03kingsoftpdf/042kingsoftpdfsuper}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
 \subsection{Okular}
-\begin{frame}{PC计算机}{Okular}
-  \begin{columns}[c]
+\begin{frame}{PC端批注}{Okular}
+  \begin{columns}[c,onlytextwidth]
     \column{0.35\textwidth}
+    \begin{spacing}{1.2}
     \begin{itemize}
     \item 基本功能
       \begin{itemize}
@@ -357,55 +357,57 @@
       \item Mac OS
       \item Linux
       \end{itemize}
-    \item 下载链接
+    \item 下载链接\footnote[frame,1]{Ubuntu平台可
+            以直接使用：sudo apt install okular命令进行安装。}
       \begin{itemize}
-      \item 官网
-        \link{https://okular.kde.org/}\footnote[frame,1]{Ubuntu平台可
-          以直接使用：sudo apt install okular命令进行安装。}
+      \item \href{https://okular.kde.org/}{Okular官网}
       \end{itemize}
     \item 授权
       \begin{itemize}
       \item \alert{免费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.55\textwidth}
-    \includegraphics[width=0.95\textwidth]{04okular/01okularabout}
+    \centering
+    \includegraphics[height=0.70\textheight]{04okular/01okularabout}
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Okular}
+\begin{frame}{PC端批注}{Okular}
   \begin{itemize}
-  \item \enquote{注释}工具栏
+  \item \enquote{批注}工具栏
     \begin{itemize}
-    \item \menu{注释}菜单打开\enquote{注释}工具栏
+      \item \menu{工具>批注}(\keys{F6})菜单打开\enquote{批注}工具栏
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{height=0.7\textheight}{04okular/03okulartoolbar}
+    \begin{annotationimage}{height=0.45\textheight}{04okular/03okulartoolbar}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Okular}
+\begin{frame}{PC端批注}{Okular}
   \begin{itemize}
-  \item \enquote{注释}工具栏
+  \item \enquote{批注}工具栏
     \begin{itemize}
-    \item 添加各类\enquote{注释}\footnote[frame,1]{与Acrobat Reader DC
+    \item 添加各类\enquote{批注}\footnote[frame,1]{与Acrobat Reader DC
         软件操作基本一致。}
-    \item 管理各类\enquote{注释}
+    \item 管理各类\enquote{批注}
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.6\textwidth}{04okular/02okulargui}
+    \begin{annotationimage}{width=0.70\textwidth}{04okular/02okulargui}
     \end{annotationimage}
   \end{center}
 \end{frame}
 
 \subsection{Xournal++}
 
-\begin{frame}{PC计算机}{Xournal++}
-  \begin{columns}[c]
+\begin{frame}{PC端批注}{Xournal++}
+  \begin{columns}[c,onlytextwidth]
     \column{0.35\textwidth}
+    \begin{spacing}{1.3}
     \begin{itemize}
     \item 基本功能
       \begin{itemize}
@@ -421,23 +423,26 @@
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item 官网
-        \link{https://xournalpp.github.io/}
+        \item \href{https://xournalpp.github.io/}{官网}
       \end{itemize}
     \item 授权
       \begin{itemize}
       \item \alert{免费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.55\textwidth}
     \vspace{1ex}
-    \includegraphics[width=0.85\textwidth]{08xournal++/01xournalabout}
+    \includegraphics[width=0.95\textwidth]{08xournal++/01xournalabout}
   \end{columns}
 \end{frame}
 
-\begin{frame}{PC计算机}{Xournal++}
+\begin{frame}{PC端批注}{Xournal++}
   \begin{itemize}
   \item \enquote{标注}工具栏
+    \begin{itemize}
+      \item \menu{文件>标注PDF}导入PDF文件
+    \end{itemize}
   \end{itemize}
   \vspace{3ex}
   \begin{center}
@@ -473,76 +478,84 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{PC计算机}{Xournal++}
+\begin{frame}{PC端批注}{Xournal++}
   \begin{itemize}
   \item 手写与\enquote{标注}
   \end{itemize}
   \vspace{2ex}
-  \begin{columns}[c]
+  \begin{columns}[c,onlytextwidth]
     \column{0.75\textwidth}
     \centering
-    \includegraphics[width=0.90\textwidth]{08xournal++/03xournalex01}
+    \includegraphics[width=0.80\textwidth]{08xournal++/03xournalex01}
     \column{0.25\textwidth}
     \centering
     \includegraphics[width=1.00\textwidth]{08xournal++/04wacom}
   \end{columns}
 \end{frame}
 
-\begin{frame}[standout,plain]
-  说明：\\
-  软件其他功能也很强大\\
-  只要\alert{熟悉一个软件}就好\\
-  \alert{推荐}使用\enquote{Acrobat Reader DC}，毕竟是\alert{原生的}\\
-  肯定还有你偏好的其它软件
+\begin{frame}[c]{PC端批注}
+  \begin{center}
+    \begin{spacing}{1.8}
+      说明：\\
+      软件其他功能也很强大\\
+      只要\alert{熟悉一个软件}就好\\
+      \alert{推荐}使用\enquote{Acrobat Reader DC}(\alert{原生的})\\
+      肯定还有你偏好的其它软件
+    \end{spacing}
+  \end{center}
 \end{frame}
-\section{iOS平板}
+
+\section{移动端批注}
 \subsection{Goodnotes}
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{columns}[c]
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{columns}[c,onlytextwidth]
     \column{0.45\textwidth}
+    \begin{spacing}{1.3}
     \begin{itemize}\itemsep=3pt
     \item 基本功能
       \begin{itemize}
       \item 笔记软件
-      \item 支持Apple Pencil
+      \item 支持手写笔
       \item 可以\alert{批注}PDF文档
       \item 具备文字识别功能(OCR)
       \end{itemize}
     \item 适用平台
       \begin{itemize}
-      \item iOS平板
-      \item 其它平台未知
+      \item 移动端
+      % \item 手机
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item Apple Store
+      \item 应用商店
       \end{itemize}
     \item 授权
       \begin{itemize}
-      \item \alert{50.00RMB}
+      \item \alert{收费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.45\textwidth}
+    \centering
     \includegraphics[height=0.75\textheight]{05goodnotes/01appstore}
   \end{columns}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 文件管理
     \begin{itemize}
-    \item 创建文件夹
-    \item 分门别类管理
+    \item 文件夹分类管理
     \end{itemize}
   \end{itemize}
+  \vspace{3ex}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/02gui01}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/02gui01}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/02gui02}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/02gui02}};
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3)
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/03creatfold}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/03creatfold}};
 
       \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -557,7 +570,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.008,0.731) (0.046, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
         \node[fit={(0.340,0.590) (0.379, 0.644)}, inner sep=0pt, draw=red, thick] (fold) {};
@@ -575,20 +588,20 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 导入PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
-    \item 从\enquote{iCloud云盘}导入
+    \item 从\enquote{云盘}导入
     \end{itemize}
   \end{itemize}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/04importmenu}};
+      {\includegraphics[width=0.40\textwidth]{05goodnotes/04importmenu}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importicloud}};
+      {\includegraphics[width=0.40\textwidth]{05goodnotes/05importicloud}};
 
       \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -616,47 +629,47 @@
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (pdffold.west) to
         [out=180, in=90] (new.north);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
         in=180] node[midway,circle,inner sep=0pt,minimum
         size=3pt,text=white,fill=black] {\scriptsize \sffamily 1}(import.west);
-        
-        
+
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
         [out=0, in=180] node[midway,circle,inner
         sep=0pt,minimum size=3pt,text=white,fill=black] {\scriptsize \sffamily
           2}(icloud.west);
-        
-        
+
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (icloud.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white,fill=black] {\scriptsize \sffamily 3} (pdfname.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudroot.east) to
         [out=0, in=180] (icloudpdf.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, blue, thick] (icloudpdf.south) to
         [out=-90, in=45] (pdfname.north);
-        
+
       \end{scope}
     \end{tikzpicture}
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 导入PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
-    \item 从\enquote{我的iPad}本地可用位置导入
+    \item 从本地可用位置导入
     \end{itemize}
   \end{itemize}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/04importmenu}};
+      {\includegraphics[width=0.40\textwidth]{05goodnotes/04importmenu}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/05importmyipad}};
+      {\includegraphics[width=0.40\textwidth]{05goodnotes/05importmyipad}};
 
       \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -671,7 +684,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.23,0.92) (0.268, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};        
         \node[fit={(0.008,0.731) (0.073, 0.825)}, inner sep=0pt, draw=red, thick] (new) {};
@@ -685,17 +698,17 @@
         \draw[-{Stealth[scale=0.8]}, red, thick] (new.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
         size=3pt,text=white] {\scriptsize \sffamily 1} (import.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (import.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (ipad.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (ipad.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
         (pdfname.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, blue, thick] (ipadpdf.south) to [out=-90, in=90] (pdfname.north);
       \end{scope}
     \end{tikzpicture}
@@ -703,8 +716,8 @@
 \end{frame}
 
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
@@ -713,7 +726,7 @@
   \end{itemize}
   \begin{center}
     % node [midway, sloped, above] {}
-    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/06openfrommail}        
+    \begin{annotationimage}{width=0.45\textwidth}{05goodnotes/06openfrommail}        
       % 利用fit库绘制命名矩形             
       \node[fit={(0.015,0.65) (0.31, 0.77)}, inner sep=0pt, draw=red, thick] (mailitem) {};
       \node[fit={(0.328,0.365) (0.5, 0.55)}, inner sep=0pt, draw=red, thick] (attachfile) {};
@@ -722,7 +735,7 @@
       \draw[-{Stealth[scale=0.8]}, red, thick] (mailitem.south) to
       [out=-90, in=180]node [midway, sloped, below] {\small 打开邮件}
       (attachfile.west);
-      
+
       \draw[-{Stealth[scale=0.8]}, blue, thick] (attachfile.north) to
       [out=90, in=90]node [midway, sloped, above] {\small 长按并选择
         \enquote{GoodNotes}}  (goodnotessel.north);      
@@ -730,17 +743,17 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
-    \item 从\alert{Safari}\enquote{浏览器}打开
+    \item 从\enquote{浏览器}打开
     \end{itemize}
   \end{itemize}
   \begin{center}
     % node [midway, sloped, above] {}
-    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/06openfromsafra}
+    \begin{annotationimage}{width=0.45\textwidth}{05goodnotes/06openfromsafra}
     %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/06openfromsafra}          
       % 利用fit库绘制命名矩形             
       \node[fit={(0.844,0.92) (0.88, 0.97)}, inner sep=0pt, draw=red, thick] (openwithothers) {};
@@ -752,22 +765,23 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
     \item 从\alert{QQ}\enquote{传输文件}打开
     \end{itemize}
   \end{itemize}
+  \vspace{3ex}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqfile}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/07qqfile}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07openinqq}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/07openinqq}};
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.34\textwidth]{05goodnotes/07qqopenwith}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/07qqopenwith}};
 
       \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -782,24 +796,24 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.14,0.11) (0.27, 0.41)}, inner sep=0pt, draw=red, thick] (qqfile) {};        
         \node[fit={(0.64,0.925) (0.66, 0.958)}, inner sep=0pt, draw=red, thick] (qqfileopen) {};
         \node[fit={(0.56,0.81) (0.662, 0.905)}, inner sep=0pt,
         draw=red, thick] (qqopenwith) {};
         \node[fit={(0.96,0.38) (0.995, 0.537)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
         size=3pt,text=white] {\scriptsize \sffamily 1} (qqfileopen.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
         [out=0, in=0]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (qqopenwith.east);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
@@ -809,8 +823,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
@@ -821,9 +835,9 @@
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{05goodnotes/08wechatopentwithmenu}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/08wechatopentwithmenu}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.48\textwidth]{05goodnotes/08wechatopenwithgoodnotes}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/08wechatopenwithgoodnotes}};
 
       \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -838,23 +852,23 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.47,0.93) (0.495, 0.955)}, inner sep=0pt, draw=blue, thick] (others) {};        
         \node[fit={(0.135,0.364) (0.36, 0.636)}, inner sep=0pt, draw=blue, thick] (openmenu) {};
         \node[fit={(0.21,0.395) (0.285, 0.432)}, inner sep=0pt,draw=red, thick] (openwith) {};
         \node[fit={(0.898,0.52) (0.942, 0.672)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (others.west) to [out=-135,
         in=90]node[midway,circle,fill=black,inner sep=0pt,minimum
         size=3pt,text=white] {\scriptsize \sffamily 1} (openmenu.north);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (openwith.east) to
         [out=0, in=135]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (goodnotessel.north);
-        
+
         % \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         % [out=0, in=180]node[midway,circle,fill=black,inner
         % sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
@@ -864,8 +878,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 操作PDF文件
     \begin{itemize}
     \item 进入\enquote{PDF批注}文件夹
@@ -874,7 +888,7 @@
   \end{itemize}
   \begin{center}
     % node [midway, sloped, above] {}
-    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/09importedpdffile}
+    \begin{annotationimage}{width=0.45\textwidth}{05goodnotes/09importedpdffile}
     %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/09importedpdffile}          
       % 利用fit库绘制命名矩形             
       \node[fit={(0.458,0.922) (0.54, 0.96)}, inner sep=0pt, draw=blue, thick] (pdffold) {};
@@ -883,13 +897,13 @@
       % % 绘制箭头连线表示操作顺序      
       % \draw[-{Stealth[scale=0.8]}, blue, thick] (openwithothers.south) to
       % [out=-90, in=90]node [midway, sloped, above] {\tiny 点按并选择}  (goodnotessel.north); 
-      
+
     \end{annotationimage}
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 批注PDF文件
     \begin{itemize}
     \item 点击选中的PDF文件
@@ -897,7 +911,7 @@
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/10toolbar}
+    \begin{annotationimage}{width=0.45\textwidth}{05goodnotes/10toolbar}
     %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/10toolbar}          
       % 利用fit库绘制命名矩形             
       \node[fit={(0.13,0.86) (0.87, 0.91)}, inner sep=0pt, draw=red, thick] (pdffold) {};
@@ -906,15 +920,15 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item 批注PDF文件
     \begin{itemize}
     \item 利用\alert{放大镜}工具实现细节批注
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.5\textwidth}{05goodnotes/11magnifier}
+    \begin{annotationimage}{width=0.45\textwidth}{05goodnotes/11magnifier}
     %\begin{annotationimage}[grid]{width=0.55\textwidth}{05goodnotes/11magnifier}          
       % 利用fit库绘制命名矩形             
       \node[fit={(0.74,0.458) (0.97, 0.528)}, inner sep=0pt, draw=red, thick] (roi) {};
@@ -927,8 +941,8 @@
 \end{frame}
 
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具栏
     \begin{itemize}
     \item 工具类型
@@ -936,7 +950,7 @@
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \begin{annotationimage}{width=0.8\textwidth}{05goodnotes/10toolbaricons}
+    \begin{annotationimage}{width=0.70\textwidth}{05goodnotes/10toolbaricons}
     %\begin{annotationimage}[grid]{width=0.8\textwidth}{05goodnotes/10toolbaricons}
       % 绘制外观设置按钮分组示意下划线
       \draw[thick,blue] (0.62,0.10) -- (0.87,0.10);
@@ -956,8 +970,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -967,13 +981,13 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/12pen}};
-      
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/12pen}};
+
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/12pencol}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/12pencol}};
 
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/12penwidth}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/12penwidth}};
 
       \node[anchor=south west, inner sep=2pt, above=0.5 of img2,draw,blue,thick](txt)
       {钢笔设置};
@@ -991,7 +1005,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.015,0.45) (0.12, 0.84)}, inner sep=0pt, draw=red, thick] (pen) {}; 
         \node[fit={(0.492,0.493) (0.595, 0.827)}, inner sep=0pt, draw=red, thick] (pencol) {};
@@ -1010,8 +1024,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1022,7 +1036,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/13erase}};
+      {\includegraphics[width=0.40\textwidth]{05goodnotes/13erase}};
 
       \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
       {橡皮擦设置};
@@ -1040,7 +1054,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.1,0.4) (0.42, 0.84)}, inner sep=0pt, draw=red, thick] (eraser) {}; 
         \node[fit={(0.627,0.852) (0.87, 0.917)}, inner sep=0pt, draw=red, thick] (erasersize) {};
@@ -1055,8 +1069,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1066,13 +1080,13 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/14highlightpen}};
-      
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/14highlightpen}};
+
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/14highlightpencol}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/14highlightpencol}};
 
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/14highlightpenwidth}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/14highlightpenwidth}};
 
       \node[anchor=south west, inner sep=2pt, above=0.5 of img2,draw,blue,thick](txt)
       {萤光笔设置};
@@ -1090,7 +1104,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.052,0.578) (0.154, 0.84)}, inner sep=0pt, draw=red, thick] (pen) {}; 
         \node[fit={(0.492,0.615) (0.595, 0.827)}, inner sep=0pt, draw=red, thick] (pencol) {};
@@ -1109,8 +1123,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1120,13 +1134,13 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/15drawtools}};
-      
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/15drawtools}};
+
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/15drawtoolscol}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/15drawtoolscol}};
 
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.35\textwidth]{05goodnotes/15drawtoolswidth}};
+      {\includegraphics[width=0.32\textwidth]{05goodnotes/15drawtoolswidth}};
 
       \node[anchor=south west, inner sep=2pt, above=0.5 of img2,draw,blue,thick](txt)
       {形状工具设置};
@@ -1144,7 +1158,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.069,0.338) (0.173, 0.84)}, inner sep=0pt, draw=red, thick] (draw) {}; 
         \node[fit={(0.492,0.48) (0.595, 0.827)}, inner sep=0pt, draw=red, thick] (drawcol) {};
@@ -1163,8 +1177,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1193,7 +1207,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.262,0.46) (0.579, 0.84)}, inner sep=0pt, draw=red, thick] (sel) {};
         % % 绘制箭头连线表示操作顺序
@@ -1204,8 +1218,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1234,7 +1248,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.516,0.101) (0.823, 0.74)}, inner sep=0pt, draw=red, thick] (img) {};
         % % 绘制箭头连线表示操作顺序
@@ -1245,8 +1259,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1263,8 +1277,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1274,10 +1288,10 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/19textcol}};
-      
+      {\includegraphics[width=0.35\textwidth]{05goodnotes/19textcol}};
+
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.45\textwidth]{05goodnotes/19textfmt}};
+      {\includegraphics[width=0.35\textwidth]{05goodnotes/19textfmt}};
 
       \node[anchor=west, inner sep=2pt, above=0.2 of img2,xshift = -3.25cm,draw,blue,thick](txt)
       {文字属性设置};
@@ -1295,7 +1309,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.238,0.49) (0.39, 0.82)}, inner sep=0pt, draw=red, thick] (txtcol) {}; 
         \node[fit={(0.815,0.28) (0.995, 0.84)}, inner sep=0pt, draw=red, thick] (txtfmt) {};
@@ -1310,8 +1324,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{\alert{导出}}批注结果
     \begin{itemize}
     \item 点按\alert{导出}操作按钮
@@ -1320,7 +1334,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.55\textwidth]{05goodnotes/20exportmenu}};
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/20exportmenu}};
 
       \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
         % %绘制坐标辅助网络
@@ -1335,7 +1349,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.18,0.92) (0.22, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
         \node[fit={(0.039,0.618) (0.357, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
@@ -1347,8 +1361,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{\alert{导出}}批注结果
     \begin{itemize}
     \item 选择导出\alert{格式}
@@ -1357,7 +1371,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.55\textwidth]{05goodnotes/21exportsel}};
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/21exportsel}};
 
       \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
         % %绘制坐标辅助网络
@@ -1372,7 +1386,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.23,0.14) (0.768, 0.86)}, inner sep=0pt, draw=red, thick] (exportfmt) {};
       \end{scope}
@@ -1380,8 +1394,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{itemize}
   \item \enquote{\alert{导出}}批注结果
     \begin{itemize}
     \item 导出过程
@@ -1390,7 +1404,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.55\textwidth]{05goodnotes/22exortprgbar}};
+      {\includegraphics[width=0.45\textwidth]{05goodnotes/22exortprgbar}};
 
       \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
         % %绘制坐标辅助网络
@@ -1405,7 +1419,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.381,0.457) (0.630, 0.58)}, inner sep=0pt, draw=red, thick] (exportfmt) {};
       \end{scope}
@@ -1413,28 +1427,30 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Goodnotes}
-  \begin{columns}[T]
+\begin{frame}{移动端批注}{Goodnotes}
+  \begin{columns}[T,onlytextwidth]
     \column{0.35\textwidth}
-  \begin{itemize}\itemsep=8pt
-  \item \enquote{\alert{导出}}批注结果
-    \begin{itemize}\itemsep=8pt
-    \item 选择发送方式
-      \begin{itemize}\itemsep=10pt
-      \item 邮件(\alert{强烈推荐})
-      \item 微信
-      \item QQ
-      \item iTunes
-      \item iClound
-      \item \ldots
+    \begin{spacing}{1.9}
+      \begin{itemize}
+        \item \enquote{\alert{导出}}批注结果
+          \begin{itemize}
+          \item 选择发送方式
+            \begin{itemize}
+              \item 邮件(\alert{强烈推荐})
+              \item 微信
+              \item QQ
+              \item PC客户端
+              \item 服务商云平台
+              \item $\cdots\cdots$
+            \end{itemize}
+          \end{itemize}
       \end{itemize}
-    \end{itemize}
-  \end{itemize}
-    \column{0.55\textwidth}
+    \end{spacing}
+  \column{0.55\textwidth}
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=1.0\textwidth]{05goodnotes/23exportstyles}};
+      {\includegraphics[width=0.85\textwidth]{05goodnotes/23exportstyles}};
 
       \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
         % %绘制坐标辅助网络
@@ -1449,7 +1465,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.25,0.216) (0.749, 0.78)}, inner sep=0pt, draw=red, thick] (exportfmt) {};
       \end{scope}
@@ -1459,41 +1475,42 @@
 \end{frame}
 
 \subsection{Notability}
-\begin{frame}{iOS平板}{Notability}
-  \begin{columns}[c]
+\begin{frame}{移动端批注}{Notability}
+  \begin{columns}[c,onlytextwidth]
     \column{0.45\textwidth}
-    \begin{itemize}\itemsep=3pt
+    \begin{spacing}{1.3}
+    \begin{itemize}
     \item 基本功能
       \begin{itemize}
       \item 笔记软件
-      \item 支持Apple Pencil
+      \item 支持手写笔
       \item 可以\alert{批注}PDF文档
       \end{itemize}
     \item 适用平台
       \begin{itemize}
-      \item iOS平板
-      \item 其它平台未知
+      \item 移动端
       \end{itemize}
     \item 下载链接
       \begin{itemize}
-      \item Apple Store
+      \item 应用商店
       \end{itemize}
     \item 授权
       \begin{itemize}
-      \item \alert{68.00RMB}
+      \item \alert{收费}
       \end{itemize}
     \end{itemize}
+    \end{spacing}
     \column{0.45\textwidth}
+    \centering
     \includegraphics[height=0.75\textheight]{06notability/01appstore}
   \end{columns}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 文件管理
     \begin{itemize}
-    \item 创建文件夹
-    \item 分门别类管理
+    \item 创建文件夹分类管理
     \end{itemize}
   \end{itemize}
   \begin{center}
@@ -1514,7 +1531,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.1,0.92) (0.14, 0.97)}, inner sep=0pt, draw=blue, thick] (new) {};
         \node[fit={(0.00,0.659) (0.3, 0.72)}, inner sep=0pt, draw=red, thick] (fold) {};
@@ -1527,8 +1544,8 @@
 \end{frame}
 
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 从邮件\enquote{附件}打开
@@ -1545,7 +1562,7 @@
       \draw[-{Stealth[scale=0.8]}, red, thick] (mailitem.south) to
       [out=-90, in=180]node [midway, sloped, below] {\small 打开邮件}
       (attachfile.west);
-      
+
       \draw[-{Stealth[scale=0.8]}, blue, thick] (attachfile.north) to
       [out=90, in=90]node [midway, sloped, above] {\small 长按并选择
         \enquote{Notability}}  (goodnotessel.north);      
@@ -1553,16 +1570,16 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
-    \item 从\alert{Safari}\enquote{浏览器}打开
+    \item 从\enquote{浏览器}打开
     \end{itemize}
   \end{itemize}
   \begin{center}
     % node [midway, sloped, above] {}
-    \begin{annotationimage}{width=0.5\textwidth}{06notability/02openfromsafra}
+    \begin{annotationimage}{width=0.45\textwidth}{06notability/02openfromsafra}
     %\begin{annotationimage}[grid]{width=0.5\textwidth}{05goodnotes/06openfromsafra}          
       % 利用fit库绘制命名矩形             
       \node[fit={(0.844,0.92) (0.88, 0.97)}, inner sep=0pt, draw=red, thick] (openwithothers) {};
@@ -1574,21 +1591,22 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 从\alert{QQ}\enquote{传输文件}打开
     \end{itemize}
   \end{itemize}
+  \vspace{3ex}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.34\textwidth]{06notability/03qqfile}};
+      {\includegraphics[width=0.32\textwidth]{06notability/03qqfile}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.34\textwidth]{06notability/03openinqq}};
+      {\includegraphics[width=0.32\textwidth]{06notability/03openinqq}};
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.34\textwidth]{06notability/03qqopenwith}};
+      {\includegraphics[width=0.32\textwidth]{06notability/03qqopenwith}};
 
       \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -1603,24 +1621,24 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.14,0.11) (0.27, 0.41)}, inner sep=0pt, draw=red, thick] (qqfile) {};        
         \node[fit={(0.64,0.925) (0.66, 0.958)}, inner sep=0pt, draw=red, thick] (qqfileopen) {};
         \node[fit={(0.56,0.81) (0.662, 0.905)}, inner sep=0pt,
         draw=red, thick] (qqopenwith) {};
         \node[fit={(0.93,0.38) (0.965, 0.537)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfile.east) to [out=0,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
         size=3pt,text=white] {\scriptsize \sffamily 1} (qqfileopen.west);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqfileopen.east) to
         [out=0, in=0]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (qqopenwith.east);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         [out=0, in=180]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 3}
@@ -1630,8 +1648,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 打开PDF文件
     \begin{itemize}
     \item 从\alert{微信}\enquote{传输文件}打开
@@ -1640,9 +1658,9 @@
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/04wechatopentwithmenu}};
+      {\includegraphics[width=0.40\textwidth]{06notability/04wechatopentwithmenu}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.48\textwidth]{06notability/04wechatopenwithgoodnotes}};
+      {\includegraphics[width=0.40\textwidth]{06notability/04wechatopenwithgoodnotes}};
 
       \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -1657,23 +1675,23 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.47,0.93) (0.495, 0.955)}, inner sep=0pt, draw=blue, thick] (others) {};        
         \node[fit={(0.135,0.364) (0.36, 0.636)}, inner sep=0pt, draw=blue, thick] (openmenu) {};
         \node[fit={(0.21,0.395) (0.285, 0.432)}, inner sep=0pt,draw=red, thick] (openwith) {};
         \node[fit={(0.852,0.52) (0.896, 0.672)}, inner sep=0pt, draw=red, thick] (goodnotessel) {};
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (others.west) to [out=-135,
         in=90]node[midway,circle,fill=black,inner sep=0pt,minimum
         size=3pt,text=white] {\scriptsize \sffamily 1} (openmenu.north);
-        
+
         \draw[-{Stealth[scale=0.8]}, red, thick] (openwith.east) to
         [out=0, in=135]node[midway,circle,fill=black,inner
         sep=0pt,minimum size=3pt,text=white] {\scriptsize \sffamily 2}
         (goodnotessel.north);
-        
+
         % \draw[-{Stealth[scale=0.8]}, red, thick] (qqopenwith.east) to
         % [out=0, in=180]node[midway,circle,fill=black,inner
         % sep=0pt,minimum size=3pt,white] {\scriptsize \sffamily 3}
@@ -1683,22 +1701,23 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 用Notability打开PDF文件即可将该PDF文件导入Notability
     \begin{itemize}
     \item 可选择页面(点选页面)
     \item 可选择主题(文件夹)
     \end{itemize}
   \end{itemize}
+  \vspace{3ex}
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.34\textwidth]{06notability/05importgui01}};
+      {\includegraphics[width=0.32\textwidth]{06notability/05importgui01}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.34\textwidth]{06notability/05importgui02}};
+      {\includegraphics[width=0.32\textwidth]{06notability/05importgui02}};
       \node[anchor=south west, inner sep=0, right=0.1 of img2](img3) 
-      {\includegraphics[width=0.34\textwidth]{06notability/05importgui03}};
+      {\includegraphics[width=0.32\textwidth]{06notability/05importgui03}};
 
       \begin{scope}[x={(img3.south east)},y={(img1.north west)}]
         % % 绘制坐标辅助网络
@@ -1713,7 +1732,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.122,0.217) (0.206, 0.274)}, inner sep=0pt, draw=red, thick] (creat) {};
         \node[fit={(0.414,0.1) (0.586, 0.9)}, inner sep=0pt, draw=red, thick] (open) {};
@@ -1722,7 +1741,7 @@
 
         % \node[fit={(0.565,0.85) (0.582, 0.89)}, inner sep=0pt,
         % draw=blue, fill = green!30, thick, opacity = 0.3] (import) {};
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, blue, thick] (creat.east) to [out=0,
         in=180] (open.west);
@@ -1734,8 +1753,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 批注PDF文件
     \begin{itemize}
     \item 在批注工具栏中\alert{选择合适工具}进行批注
@@ -1751,8 +1770,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item 批注PDF文件
     \begin{itemize}
     \item 利用\alert{放大镜}工具实现细节批注
@@ -1761,9 +1780,9 @@
   \begin{center}
     \begin{tikzpicture}
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/02gui02}};
+      {\includegraphics[width=0.40\textwidth]{06notability/02gui02}};
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.48\textwidth]{06notability/11magnifier}};
+      {\includegraphics[width=0.40\textwidth]{06notability/11magnifier}};
 
       \begin{scope}[x={(img2.south east)},y={(img1.north west)}]
         % 绘制坐标辅助网络
@@ -1778,12 +1797,12 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.472,0.00) (0.498, 0.062)}, inner sep=0pt, draw=blue, thick] (icon) {};
         \node[fit={(0.853,0.570) (0.988, 0.666)}, inner sep=0pt, draw=red, thick] (roi) {};
         \node[fit={(0.504,0.00) (1.00, 0.397)}, inner sep=0pt, draw=blue, thick] (magnifier) {};        
-        
+
         % 绘制箭头连线表示操作顺序
         \draw[-{Stealth[scale=0.8]}, red, thick] (icon.north) to [out=90,
         in=180]node[midway,circle,fill=black,inner sep=0pt,minimum
@@ -1797,8 +1816,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具栏
     \begin{itemize}
     \item 工具类型
@@ -1825,8 +1844,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1837,10 +1856,10 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.45\textwidth]{06notability/10textcol}};
-      
+      {\includegraphics[width=0.40\textwidth]{06notability/10textcol}};
+
       \node[anchor=south west, inner sep=0, right=0.1 of img1](img2) 
-      {\includegraphics[width=0.45\textwidth]{06notability/10textfmt}};
+      {\includegraphics[width=0.40\textwidth]{06notability/10textfmt}};
 
       \node[anchor=west, inner sep=2pt, above=0.2 of img2,xshift = -3.25cm,draw,blue,thick](txt)
       {文字属性设置};
@@ -1858,7 +1877,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.195,0.60) (0.302, 0.90)}, inner sep=0pt, draw=red, thick] (txtcol) {}; 
         \node[fit={(0.515,0.52) (0.924, 0.573)}, inner sep=0pt, draw=red, thick] (txtfmt) {};
@@ -1873,8 +1892,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1885,7 +1904,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/06pen}};
+      {\includegraphics[width=0.42\textwidth]{06notability/06pen}};
 
       \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
       {铅笔属性};
@@ -1893,8 +1912,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1905,7 +1924,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/07highlightpen}};
+      {\includegraphics[width=0.40\textwidth]{06notability/07highlightpen}};
 
       \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
       {萤光笔属性};
@@ -1913,8 +1932,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1925,7 +1944,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/08eraser}};
+      {\includegraphics[width=0.40\textwidth]{06notability/08eraser}};
 
       \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
       {橡皮擦属性};
@@ -1933,8 +1952,8 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{itemize}\itemsep=3pt
+\begin{frame}{移动端批注}{Notability}
+  \begin{itemize}
   \item \enquote{批注}工具属性设置
     \begin{itemize}
     \item 点按工具图标\alert{两次}进行工具设置
@@ -1945,7 +1964,7 @@
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=0.48\textwidth]{06notability/09seltool}};
+      {\includegraphics[width=0.40\textwidth]{06notability/09seltool}};
 
       \node[anchor=south west, inner sep=2pt, above=0.2 of img1,draw,blue,thick](txt)
       {索套属性};
@@ -1953,75 +1972,30 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{columns}[T]
+\begin{frame}{移动端批注}{Notability}
+  \begin{columns}[T,onlytextwidth]
     \column{0.4\textwidth}
-  \begin{itemize}\itemsep=8pt
-  \item \enquote{\alert{导出}}批注结果
-    \begin{itemize}\itemsep=8pt
-    \item 选择发送方式
-      \begin{itemize}\itemsep=10pt
-      \item 邮件(\alert{强烈推荐})
-      \item 网盘(\alert{不}推荐)
-      \item iTunes  
-      \item 其它应用\\
-        --微信\\--QQ\\--\ldots
-      \item \ldots
+    \begin{spacing}{1.6}
+      \begin{itemize}
+        \item \enquote{\alert{导出}}批注结果
+          \begin{itemize}
+            \item 选择发送方式
+              \begin{itemize}
+                \item 邮件(\alert{强烈推荐})
+                \item 网盘(\alert{不}推荐)
+                \item PC客户端
+                \item 其它应用\\
+                  --微信\\--QQ\\$\cdots\cdots$
+                \item $\cdots\cdots$
+              \end{itemize}
+          \end{itemize}
       \end{itemize}
-    \end{itemize}
-  \end{itemize}
-    \column{0.55\textwidth}
-  \begin{center}
-    \begin{tikzpicture}[font=\small]
-      \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=1.00\textwidth]{06notability/12exportmenu}};
-
-      \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
-        % %绘制坐标辅助网络
-        % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
-        % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
-        % \foreach \x in {0,1,...,9} {
-        %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
-        % }
-        % \node [anchor=north] at (1,0) {\tiny 1};
-
-        % \foreach \y in {0,1,...,9} {
-        %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
-        % }
-        % \node [anchor=east] at (0,1) {\tiny 1};
-        
-        % 利用fit库绘制命名矩形
-        \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
-        \node[fit={(0.01,0.202) (0.393, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
-        % % 绘制箭头连线表示操作顺序
-        \draw[-{Stealth[scale=0.8]}, blue, thick] (export.east) to [out=0,
-        in=90] (menu.north);
-      \end{scope}
-    \end{tikzpicture}
-  \end{center}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{iOS平板}{Notability}
-  \begin{columns}[T]
-    \column{0.4\textwidth}
-  \begin{itemize}\itemsep=3pt
-  \item \enquote{\alert{导出}}批注结果
-    \begin{itemize}\itemsep=3pt
-    \item 电子邮件导出
-      \begin{itemize}\itemsep=8pt
-      \item 格式---PDF
-      \item PDF选项
-      \item \ldots
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-  %\vspace{-1.5ex}
+    \end{spacing}
   \column{0.55\textwidth}
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node[anchor=south west, inner sep=0](img1) at (0,0)
-      {\includegraphics[width=1.00\textwidth]{06notability/13exportemail}};
+      {\includegraphics[width=0.85\textwidth]{06notability/12exportmenu}};
 
       \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
         % %绘制坐标辅助网络
@@ -2036,7 +2010,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
         \node[fit={(0.01,0.202) (0.393, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
@@ -2049,21 +2023,72 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{iOS平板}{Notability}
-  \begin{columns}[T]
+\begin{frame}{移动端批注}{Notability}
+  \begin{columns}[T,onlytextwidth]
     \column{0.4\textwidth}
-  \begin{itemize}\itemsep=3pt
-  \item \enquote{\alert{导出}}批注结果
-    \begin{itemize}\itemsep=3pt
-    \item 其它应用导出
-      \begin{itemize}\itemsep=8pt
-      \item 微信
-      \item QQ
-      \item GoodReader
-      \item \ldots
+    \begin{spacing}{2.3}
+      \begin{itemize}
+        \item \enquote{\alert{导出}}批注结果
+          \begin{itemize}
+            \item 电子邮件导出
+              \begin{itemize}
+                \item 格式---PDF
+                \item PDF选项
+                \item $\cdots\cdots$
+              \end{itemize}
+          \end{itemize}
       \end{itemize}
-    \end{itemize}
-  \end{itemize}
+    \end{spacing}
+    %\vspace{-1.5ex}
+    \column{0.55\textwidth}
+    \begin{center}
+      \begin{tikzpicture}[font=\small]
+        \node[anchor=south west, inner sep=0](img1) at (0,0)
+        {\includegraphics[width=0.85\textwidth]{06notability/13exportemail}};
+
+        \begin{scope}[x={(img1.south east)},y={(img1.north west)}]
+          % %绘制坐标辅助网络
+          % \draw[very thin, draw=\finegridcolor, step=0.02] (0,0) grid (1,1);
+          % \draw[thin, draw=\maingridcolor, xstep=0.1, ystep=0.1] (0,0) grid (1,1);
+          % \foreach \x in {0,1,...,9} {
+          %   \node [anchor=north] at (\x/10,0) {\tiny 0.\x};
+          % }
+          % \node [anchor=north] at (1,0) {\tiny 1};
+
+          % \foreach \y in {0,1,...,9} {
+          %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
+          % }
+          % \node [anchor=east] at (0,1) {\tiny 1};
+
+          % 利用fit库绘制命名矩形
+          \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
+          \node[fit={(0.01,0.202) (0.393, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
+          % % 绘制箭头连线表示操作顺序
+          \draw[-{Stealth[scale=0.8]}, blue, thick] (export.east) to [out=0,
+          in=90] (menu.north);
+        \end{scope}
+      \end{tikzpicture}
+    \end{center}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{移动端批注}{Notability}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.4\textwidth}
+    \begin{spacing}{2.3}
+      \begin{itemize}\itemsep=3pt
+        \item \enquote{\alert{导出}}批注结果
+          \begin{itemize}\itemsep=3pt
+            \item 其它应用导出
+              \begin{itemize}\itemsep=8pt
+                \item 微信
+                \item QQ
+                \item GoodReader
+                \item $\cdots\cdots$
+              \end{itemize}
+          \end{itemize}
+      \end{itemize}
+    \end{spacing}
   %\vspace{-1.5ex}
   \column{0.55\textwidth}
   \begin{center}
@@ -2084,7 +2109,7 @@
         %   \node [anchor=east] at (0,\y/10) {\tiny 0.\y};
         % }
         % \node [anchor=east] at (0,1) {\tiny 1};
-        
+
         % 利用fit库绘制命名矩形
         \node[fit={(0.05,0.92) (0.088, 0.97)}, inner sep=0pt, draw=blue, thick] (export) {}; 
         \node[fit={(0.01,0.312) (0.402, 0.9)}, inner sep=0pt, draw=red, thick] (menu) {};
@@ -2097,49 +2122,56 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}[standout,plain]
-  说明：\\  
-  只要\alert{熟悉一个}就好\\
-  手写能够留下\alert{真迹}\\
-  肯定还有你偏好的其它软件
+\begin{frame}[c]{移动端批注}
+  \begin{center}
+    \begin{spacing}{1.8}
+      说明：\\
+      只要\alert{熟悉一个}就好\\
+      手写能够留下\alert{真迹}\\
+      肯定还有你偏好的其它软件
+    \end{spacing}
+  \end{center}
 \end{frame}
 
-\section{\LaTeX 源码修订}
+\section{\LaTeX 源码批注}
 \subsection{changes宏包}
 
-\begin{frame}{\LaTeX 源码修订}{changes宏包}
-    \begin{columns}[T]
+\begin{frame}{\LaTeX 源码批注}{changes宏包}
+  \begin{columns}[T,onlytextwidth]
     \column{0.35\textwidth}
-    \begin{itemize}\itemsep=8pt
-    \item 基本功能
+    \begin{spacing}{1.8}
       \begin{itemize}
-      \item \LaTeX 源码级批注
+        \item 基本功能
+          \begin{itemize}
+            \item \LaTeX 源码级批注
+          \end{itemize}
+        \item 适用平台
+          \begin{itemize}
+            \item \LaTeX 运行平台
+          \end{itemize}
+        \item 下载链接
+          \begin{itemize}
+            \item \LaTeX 发行版自带
+          \end{itemize}
+        \item 授权
+          \begin{itemize}
+            \item \alert{免费}
+          \end{itemize}
       \end{itemize}
-    \item 适用平台
-      \begin{itemize}
-      \item \LaTeX 运行平台
-      \end{itemize}
-    \item 下载链接
-      \begin{itemize}
-      \item \LaTeX 发行版自带
-      \end{itemize}
-    \item 授权
-      \begin{itemize}
-      \item \alert{免费}
-      \end{itemize}
-    \end{itemize}
+    \end{spacing}
     \column{0.55\textwidth}
     \centering
     \includegraphics[height=0.8\textheight]{07changes/01changes}
   \end{columns}
 \end{frame}
 
-\begin{frame}{\LaTeX 源码修订}{changes宏包}
-  \begin{columns}[T]
+\begin{frame}{\LaTeX 源码批注}{changes宏包}
+  \begin{columns}[T,onlytextwidth]
     \column{0.45\textwidth}
-    \begin{itemize}\itemsep=8pt
+    \begin{spacing}{1.9}
+    \begin{itemize}
     \item 修订步骤
-      \begin{itemize}\itemsep=10pt
+      \begin{itemize}
       \item 引入changes宏包
       \item 设置审阅人属性
       \item 标记修订内容
@@ -2149,16 +2181,18 @@
       \item 接受/拒绝修订后删除各类标记
       \end{itemize}
     \end{itemize}
-    \column{0.45\textwidth} \centering
-    \includegraphics[height=0.6\textheight]{07changes/02changesscheme}        
+    \end{spacing}
+    \column{0.55\textwidth} \centering
+    \includegraphics[height=0.65\textheight]{07changes/02changesscheme}        
   \end{columns}
 \end{frame}
 
-\begin{frame}{\LaTeX 源码修订}{changes宏包}
-  \begin{itemize}%\itemsep=8pt
+\begin{frame}{\LaTeX 源码批注}{changes宏包}
+  %\stretchon
+  \begin{itemize}
   \item 修订命令\footnote[frame,1]{详情请用：\enquote{\alert{texdoc changes}命令}查阅宏
       包说明书。}
-    \begin{itemize}%\itemsep=10pt
+    \begin{itemize}
     \item 审阅人设置命令
       \begin{itemize}
       \item \texinline{\definechangesauthor[name=<name>, color=<color>]{<id>}}
@@ -2180,34 +2214,37 @@
     \item 其它命令
     \end{itemize}
   \end{itemize}
+  %\stretchoff
 \end{frame}
 
-\begin{frame}[standout,plain]
-  类似的宏包还有：\\
-  easyReview\\
-  todonotes\\
-  pdfreview\\...\\
-  请用\enquote{\alert{texdoc}}命令查看其说明书
+\subsection[其它宏包]{其它宏包}
+\begin{frame}[c]{\LaTeX 源码批注}
+  \begin{center}
+    \begin{spacing}{1.8}
+       类似的宏包还有：\\
+       easyReview\\
+       todonotes\\
+       pdfreview\\$\cdots\cdots$\\
+       请用\enquote{\alert{texdoc}}命令查看其说明书
+    \end{spacing}
+  \end{center}
 \end{frame}
 
-%\section{小结}
-\begin{frame}[standout,plain]
-  PDF批注方案很多\\
-  根据习惯选用即可\\
-  这个文档\\
-  肯定有不完善的地方\\
-  欢迎批评指正\\...
+% \section{小结}
+\begin{frame}[c]{PDF批注}
+  \begin{center}
+    \begin{spacing}{1.8}
+      PDF批注方案很多\\
+      根据习惯选用即可\\
+      这个文档\\
+      肯定有不完善的地方\\
+      欢迎批评指正\\
+    \end{spacing}
+  \end{center}
 \end{frame}
+
+
+% 尾页
+%\thanksframe
 
 \end{document}
-
-% \begin{frame}{\LaTeX 源码修订}{changes宏包}
-  
-% \end{frame}
-
-%[label=testframe]
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:

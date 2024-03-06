@@ -380,3 +380,17 @@ TSWLatexianTemp*
 
 # pdfs
 main.pdf
+
+#microvideos
+microvideo/*
+
+# refs folder
+./refs/
+/refs/*
+./refs/*
+
+# microvideo folder
+./microvideo/
+/microvideo/*
+./microvideo/*
+microvideo
